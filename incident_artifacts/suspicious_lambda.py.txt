@@ -1,0 +1,15 @@
+# SIMULATION ONLY - FORENSIC EVIDENCE
+#
+# Suspected scheduled Lambda persistence
+
+SCHEDULE = "rate(24 hours)"
+
+SUSPICIOUS_CAPABILITIES = [
+    "secretsmanager:GetSecretValue",
+    "s3:GetObject",
+    "sts:AssumeRole"
+]
+
+EXTERNAL_DESTINATION = "simulated-attacker.example.invalid"
+
+# No network connection or data transmission is implemented.

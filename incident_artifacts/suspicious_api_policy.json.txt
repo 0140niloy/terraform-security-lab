@@ -1,0 +1,9 @@
+{
+  "SIMULATION_ONLY": true,
+  "suspected_policy_change": {
+    "Principal": "*",
+    "Action": "execute-api:Invoke",
+    "Effect": "Allow"
+  },
+  "note": "Forensic evidence only. Not deployed."
+}
