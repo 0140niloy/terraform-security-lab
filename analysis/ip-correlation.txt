@@ -1,0 +1,23 @@
+IP / ASN CORRELATION
+====================
+
+Observed simulated source IP:
+198.51.100.42
+
+Classification:
+RFC 5737 TEST-NET-2 documentation address.
+
+Assessment:
+This address is intentionally used for the training dataset.
+No real-world attacker attribution or ASN attribution is made.
+
+For a real incident, source IP analysis should consider:
+- CloudTrail/API logs
+- VPN and proxy infrastructure
+- NAT gateways
+- Cloud-hosting providers
+- ASN and registration information
+- Timestamp and timezone correlation
+- Multiple independent log sources
+
+An IP address alone does not establish the identity of an attacker.
