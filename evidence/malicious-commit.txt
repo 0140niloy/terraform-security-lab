@@ -1,0 +1,59 @@
+commit e78c61cb276d00c008be9d318e5fcca1db005a96
+Author:     nloy <0140niloy@gmail.com>
+AuthorDate: Tue Sep 22 23:37:32 2026 +0600
+Commit:     nloy <0140niloy@gmail.com>
+CommitDate: Tue Sep 22 23:37:32 2026 +0600
+
+    Update infrastructure modules
+
+diff --git a/incident_artifacts/suspicious_api_policy.json.txt b/incident_artifacts/suspicious_api_policy.json.txt
+new file mode 100644
+index 0000000..6de27ec
+--- /dev/null
++++ b/incident_artifacts/suspicious_api_policy.json.txt
+@@ -0,0 +1,9 @@
++{
++  "SIMULATION_ONLY": true,
++  "suspected_policy_change": {
++    "Principal": "*",
++    "Action": "execute-api:Invoke",
++    "Effect": "Allow"
++  },
++  "note": "Forensic evidence only. Not deployed."
++}
+diff --git a/incident_artifacts/suspicious_iam.tf.txt b/incident_artifacts/suspicious_iam.tf.txt
+new file mode 100644
+index 0000000..67657ce
+--- /dev/null
++++ b/incident_artifacts/suspicious_iam.tf.txt
+@@ -0,0 +1,9 @@
++# SIMULATION ONLY - FORENSIC EVIDENCE
++#
++# Suspected unauthorized IAM trust relationship
++
++SUSPECTED_EXTERNAL_ACCOUNT = "999999999999"
++SUSPECTED_ROLE = "finance-deployment-backdoor"
++SUSPECTED_ACTION = "sts:AssumeRole"
++
++# The external account is not authorized by the simulated organization.
+diff --git a/incident_artifacts/suspicious_lambda.py.txt b/incident_artifacts/suspicious_lambda.py.txt
+new file mode 100644
+index 0000000..4e84bd3
+--- /dev/null
++++ b/incident_artifacts/suspicious_lambda.py.txt
+@@ -0,0 +1,15 @@
++# SIMULATION ONLY - FORENSIC EVIDENCE
++#
++# Suspected scheduled Lambda persistence
++
++SCHEDULE = "rate(24 hours)"
++
++SUSPICIOUS_CAPABILITIES = [
++    "secretsmanager:GetSecretValue",
++    "s3:GetObject",
++    "sts:AssumeRole"
++]
++
++EXTERNAL_DESTINATION = "simulated-attacker.example.invalid"
++
++# No network connection or data transmission is implemented.
