@@ -1,0 +1,50 @@
+FORENSIC FINDING 001
+====================
+
+Finding:
+A single Git commit introduced three simulated artifacts representing
+potential persistence and unauthorized access mechanisms.
+
+Commit:
+e78c61cb276d00c008be9d318e5fcca1db005a96
+
+Author:
+nloy
+
+Date:
+2026-09-22 23:37:32 +0600
+
+Commit message:
+Update infrastructure modules
+
+Artifacts introduced:
+1. incident_artifacts/suspicious_iam.tf.txt
+2. incident_artifacts/suspicious_lambda.py.txt
+3. incident_artifacts/suspicious_api_policy.json.txt
+
+Indicators:
+- External account: 999999999999
+- IAM action: sts:AssumeRole
+- Lambda schedule: rate(24 hours)
+- Secrets capability: secretsmanager:GetSecretValue
+- Storage capability: s3:GetObject
+- API action: execute-api:Invoke
+- API principal: *
+- Simulated external destination:
+  simulated-attacker.example.invalid
+
+Assessment:
+The artifacts represent simulated indicators of three persistence/access
+layers: IAM trust manipulation, scheduled serverless execution, and
+anonymous API invocation.
+
+Important limitation:
+These files are explicitly marked SIMULATION ONLY and are not deployed
+cloud resources. Their presence establishes a forensic artifact in the
+training repository, not proof of compromise of an actual AWS, GCP, or
+Azure environment.
+
+Required correlation:
+Cloud audit logs, IAM history, serverless configuration history, API
+Gateway policy history, and deployment records should be correlated
+before concluding that any real cloud resource was compromised.
