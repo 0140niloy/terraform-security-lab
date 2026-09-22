@@ -1,0 +1,179 @@
+IOC INVENTORY
+=============
+
+Case: Terraform / IaC Security Lab
+Evidence commit: e78c61cb276d00c008be9d318e5fcca1db005a96
+Documentation commit: 698fa5c
+
+1. AWS ACCOUNT IDENTIFIER
+-------------------------
+Indicator:
+999999999999
+
+Type:
+AWS account identifier
+
+Context:
+Referenced as a suspected unauthorized external account in the
+simulated IAM forensic artifact.
+
+Confidence:
+High within the simulation.
+
+Validation required:
+Compare against the organization's authorized AWS account inventory
+and CloudTrail/IAM trust relationships.
+
+
+2. SIMULATED EXTERNAL DESTINATION
+---------------------------------
+Indicator:
+simulated-attacker.example.invalid
+
+Type:
+Domain / destination
+
+Context:
+Referenced by the simulated Lambda artifact.
+
+Confidence:
+High within the simulation.
+
+Important limitation:
+The .invalid domain is intentionally non-routable and is included
+only as forensic evidence.
+
+
+3. IAM ACTION
+-------------
+Indicator:
+sts:AssumeRole
+
+Type:
+AWS IAM API/action
+
+Context:
+Associated with the simulated suspicious IAM relationship and Lambda
+capability list.
+
+Confidence:
+Context-dependent.
+
+Note:
+sts:AssumeRole is a legitimate AWS capability and is NOT by itself
+evidence of malicious activity.
+
+
+4. SECRETS ACCESS
+-----------------
+Indicator:
+secretsmanager:GetSecretValue
+
+Type:
+AWS IAM permission/API action
+
+Context:
+Listed as a suspicious Lambda capability.
+
+Confidence:
+Context-dependent.
+
+Note:
+This permission can be legitimate for applications that retrieve
+secrets.
+
+
+5. S3 OBJECT ACCESS
+-------------------
+Indicator:
+s3:GetObject
+
+Type:
+AWS IAM permission/API action
+
+Context:
+Listed as a suspicious Lambda capability.
+
+Confidence:
+Context-dependent.
+
+Note:
+This permission is commonly legitimate and requires additional
+context before being classified as malicious.
+
+
+6. API GATEWAY INVOCATION
+-------------------------
+Indicator:
+execute-api:Invoke
+
+Type:
+AWS API Gateway permission/action
+
+Context:
+Present in the simulated API policy artifact.
+
+Confidence:
+Context-dependent.
+
+Validation required:
+Determine whether the affected API was intentionally public and
+review API Gateway policy/configuration history.
+
+
+7. WILDCARD PRINCIPAL
+---------------------
+Indicator:
+Principal = *
+
+Type:
+IAM/API policy configuration
+
+Context:
+Simulated API policy allows invocation by a wildcard principal.
+
+Confidence:
+Context-dependent.
+
+Validation required:
+Compare against the intended API access model and historical policy.
+
+
+8. SCHEDULED EXECUTION
+----------------------
+Indicator:
+rate(24 hours)
+
+Type:
+Scheduled serverless execution
+
+Context:
+Simulated Lambda persistence mechanism.
+
+Confidence:
+High within the simulation.
+
+Validation required:
+Review actual EventBridge/CloudWatch scheduling configuration and
+CloudTrail history if this were a real environment.
+
+
+SUMMARY
+-------
+
+The strongest simulation-specific indicators are:
+
+- AWS account: 999999999999
+- Destination: simulated-attacker.example.invalid
+- Schedule: rate(24 hours)
+
+The following are contextual indicators and require correlation:
+
+- sts:AssumeRole
+- secretsmanager:GetSecretValue
+- s3:GetObject
+- execute-api:Invoke
+- Principal = *
+
+No real cloud compromise should be concluded from these repository
+artifacts alone.
