@@ -1,0 +1,42 @@
+[
+  {
+    "eventTime": "2026-09-22T23:40:12Z",
+    "eventName": "CreateRole",
+    "eventSource": "iam.amazonaws.com",
+    "userIdentity": "deployment-user",
+    "resource": "finance-deployment-backdoor",
+    "sourceIPAddress": "198.51.100.42"
+  },
+  {
+    "eventTime": "2026-09-22T23:41:03Z",
+    "eventName": "UpdateAssumeRolePolicy",
+    "eventSource": "iam.amazonaws.com",
+    "userIdentity": "deployment-user",
+    "resource": "finance-deployment-backdoor",
+    "sourceIPAddress": "198.51.100.42"
+  },
+  {
+    "eventTime": "2026-09-23T00:05:22Z",
+    "eventName": "CreateFunction",
+    "eventSource": "lambda.amazonaws.com",
+    "userIdentity": "deployment-user",
+    "resource": "finance-scheduled-check",
+    "sourceIPAddress": "198.51.100.42"
+  },
+  {
+    "eventTime": "2026-09-23T00:06:14Z",
+    "eventName": "PutRule",
+    "eventSource": "events.amazonaws.com",
+    "userIdentity": "deployment-user",
+    "resource": "finance-daily-trigger",
+    "sourceIPAddress": "198.51.100.42"
+  },
+  {
+    "eventTime": "2026-09-23T00:07:09Z",
+    "eventName": "PutRestApi",
+    "eventSource": "apigateway.amazonaws.com",
+    "userIdentity": "deployment-user",
+    "resource": "finance-api",
+    "sourceIPAddress": "198.51.100.42"
+  }
+]
