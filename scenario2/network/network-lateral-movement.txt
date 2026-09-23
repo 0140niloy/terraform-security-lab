@@ -1,0 +1,95 @@
+SCENARIO 2 - NETWORK AND LATERAL MOVEMENT ANALYSIS
+===================================================
+
+OBJECTIVE
+---------
+Determine whether the DBA identity or workstation moved beyond its normal
+administrative scope.
+
+NETWORK SOURCES
+---------------
+Review:
+- VPN logs
+- Proxy logs
+- Firewall logs
+- Network flow logs
+- DNS logs
+- EDR network telemetry
+- Database connection logs
+- SFTP connection attempts
+- Remote administration logs
+- NAC/device identity records
+
+LATERAL MOVEMENT
+----------------
+Investigate connections from the DBA workstation/account toward:
+- Production databases
+- HR systems
+- Identity systems
+- File servers
+- Administrative systems
+- Backup infrastructure
+- Other privileged hosts
+
+For every connection record:
+- Source
+- Destination
+- Timestamp
+- Protocol
+- Port
+- Identity
+- Device
+- Result
+
+SFTP INVESTIGATION
+------------------
+For the reported non-approved SFTP destination, determine:
+- Destination hostname/IP
+- Authentication method
+- Connection timestamp
+- Connection duration
+- Transfer attempt
+- Bytes transferred
+- Whether the connection was blocked
+- Whether any data successfully left the environment
+
+Do not infer successful exfiltration from a connection attempt alone.
+
+PUBLIC WIFI
+-----------
+Public Wi-Fi is an unusual access context but is not independently proof
+of malicious activity.
+
+Correlate:
+- VPN authentication
+- Device certificate
+- Endpoint identity
+- Network address translation
+- DHCP information
+- EDR telemetry
+- Known travel information
+
+IMPOSSIBLE TRAVEL
+-----------------
+Compare authentication events against:
+- VPN gateways
+- Proxy infrastructure
+- Okta device/session records
+- Known corporate egress points
+- Time synchronization
+
+A geographic anomaly may be caused by network infrastructure and must be
+validated before being treated as account compromise.
+
+NETWORK OBJECTIVES
+------------------
+Establish:
+1. Initial access path
+2. Authentication path
+3. Database access path
+4. Lateral movement path
+5. Data staging path
+6. External transfer path
+7. Any command-and-control communication
+
+No real external systems should be contacted during this investigation.

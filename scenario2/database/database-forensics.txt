@@ -1,0 +1,115 @@
+SCENARIO 2 - DATABASE FORENSIC INVESTIGATION
+============================================
+
+OBJECTIVE
+---------
+Determine what the DBA account accessed, what data was copied, and whether
+database controls were intentionally bypassed or altered.
+
+AUDIT LOG SOURCES
+-----------------
+Review, where available:
+- Database audit logs
+- Native database logs
+- Authentication/session logs
+- Query logs
+- Database activity monitoring
+- Privileged-access-management records
+- DDL/DCL change history
+- Backup/replication logs
+
+AUDIT LOG DISABLEMENT
+---------------------
+The scenario reports an audit-control modification on a sensitive schema.
+
+Investigate:
+- Exact timestamp
+- Authenticated identity
+- Source workstation
+- Database session ID
+- SQL client/application
+- Previous audit configuration
+- Configuration-change history
+- Administrative approval/change ticket
+- Whether logging was restored
+- Whether events were lost during the disabled period
+
+IMPORTANT:
+A missing audit record is not proof that no activity occurred.
+
+RECOVERY SOURCES
+----------------
+Where database audit logging was disabled, correlate:
+- EDR process execution
+- Network flow records
+- VPN logs
+- Database connection metadata
+- Application logs
+- Backup systems
+- Replication systems
+- SIEM ingestion
+- Database transaction logs
+- Operating-system logs
+
+DATA ACCESS
+-----------
+Determine:
+- Tables accessed
+- Records queried
+- Query volume
+- Export operations
+- Bulk-read operations
+- Database dumps
+- Temporary tables
+- Staging files
+- Compression/archive activity
+
+DATA CLASSIFICATION
+-------------------
+Classify potentially accessed information:
+- Protected Health Information (PHI)
+- Personally Identifiable Information
+- Clinical records
+- Insurance information
+- Payment information
+- Employee records
+- Credentials/secrets
+
+DATA ACCESS VS DATA EXFILTRATION
+--------------------------------
+Distinguish:
+
+ACCESS:
+The account could read information.
+
+QUERY:
+The account issued a database request.
+
+COPY:
+Information was copied to another local or remote location.
+
+EXFILTRATION:
+Information was transferred outside the organization's authorized
+environment.
+
+Do not equate database access with confirmed exfiltration.
+
+SCOPE DETERMINATION
+-------------------
+Calculate:
+- Number of records queried
+- Number of unique patients
+- Data categories
+- Time period of records
+- Volume transferred
+- Destination
+- Encryption status
+- Whether copied data can be recovered
+
+FINAL DATABASE QUESTIONS
+------------------------
+1. What data was accessed?
+2. What data was copied?
+3. What data left the environment?
+4. What evidence supports each conclusion?
+5. What evidence was unavailable because logging was disabled?

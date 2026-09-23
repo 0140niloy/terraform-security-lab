@@ -1,0 +1,48 @@
+SCENARIO 2 - INITIAL INVESTIGATION HYPOTHESES
+==============================================
+
+Objective:
+Determine whether unusual DBA activity represents:
+
+H1 - MALICIOUS INSIDER
+----------------------
+The legitimate DBA intentionally performed unauthorized activities
+for personal, financial, espionage, sabotage, or other purposes.
+
+H2 - COMPROMISED ACCOUNT
+------------------------
+An external attacker obtained or bypassed the DBA's credentials and
+used the legitimate account.
+
+H3 - COMPROMISED DBA WORKSTATION
+---------------------------------
+Malware or another endpoint compromise caused the activity while the
+DBA's identity and credentials were legitimately or illegitimately used.
+
+H4 - OPERATIONAL ANOMALY
+------------------------
+The activity has a legitimate operational explanation, such as emergency
+maintenance, approved data processing, VPN/proxy behavior, or a monitoring
+artifact.
+
+CURRENT STATUS
+--------------
+No hypothesis is confirmed.
+
+Important:
+Unusual location, unusual working hours, impossible-travel alerts, large
+downloads, or access to sensitive systems are indicators requiring
+investigation. They do not independently establish malicious intent.
+
+Evidence required for determination:
+- EDR telemetry
+- Authentication and MFA records
+- VPN/proxy logs
+- Database audit records
+- Network flow records
+- Endpoint forensic evidence
+- File-transfer evidence
+- Change-management records
+- Authorized administrative activity
+- Credential/key history
+- Relevant communications where legally authorized

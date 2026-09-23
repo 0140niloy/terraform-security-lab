@@ -1,0 +1,92 @@
+SCENARIO 2 - INSIDER THREAT INVESTIGATION
+=========================================
+
+OBJECTIVE
+---------
+Determine whether the observed activity is consistent with intentional
+unauthorized activity by the legitimate DBA.
+
+AUTHORIZED EVIDENCE
+-------------------
+Review only evidence authorized by organizational policy, legal counsel,
+HR, privacy requirements, and applicable law.
+
+WORK ACTIVITY
+-------------
+Compare:
+- Normal DBA working patterns
+- Approved maintenance windows
+- Change tickets
+- Emergency maintenance
+- Scheduled jobs
+- Historical database-access patterns
+- Previous administrative activity
+
+COLLEAGUE / WITNESS INFORMATION
+-------------------------------
+Where authorized:
+- Identify approved maintenance activity
+- Validate whether the DBA was expected to work
+- Establish whether another employee requested the activity
+- Document observations without treating opinions as factual conclusions
+
+COMMUNICATIONS
+--------------
+If legally authorized, investigate relevant organizational communications
+for:
+- Incident-related instructions
+- Data-transfer requests
+- Unauthorized access requests
+- Coordination with other accounts
+
+Do not access private communications without appropriate authorization.
+
+FINANCIAL / PERSONAL INVESTIGATION
+-----------------------------------
+Any investigation of personal finances, foreign contacts, lifestyle
+changes, or private activity requires appropriate legal and organizational
+authorization.
+
+Such information must not be treated as evidence of malicious intent
+without corroborating technical evidence.
+
+COLLATERAL INVESTIGATION
+------------------------
+Identify:
+- Other accounts accessing the same data
+- Other workstations involved
+- Shared credentials
+- Administrative accounts
+- Service accounts
+- Possible accomplices
+- Additional data-transfer events
+
+DARK-WEB / BREACH CHECKS
+------------------------
+If authorized:
+- Search approved threat-intelligence sources
+- Search known breach datasets
+- Search for organizational indicators
+- Preserve evidence and timestamps
+
+Do not upload patient information, credentials, or confidential data to
+public search services.
+
+OBJECTIVE ASSESSMENT
+--------------------
+Compare evidence against competing hypotheses:
+
+H1 - Malicious insider
+H2 - Compromised account
+H3 - Compromised workstation
+H4 - Operational anomaly
+
+Record:
+- Supporting evidence
+- Contradicting evidence
+- Missing evidence
+- Confidence level
+- Alternative explanations
+
+Do not make an attribution or intent determination until the evidence
+supports it.

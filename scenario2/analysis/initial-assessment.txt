@@ -1,0 +1,64 @@
+SCENARIO 2 - INITIAL FORENSIC ASSESSMENT
+=========================================
+
+Potentially significant indicators:
+
+1. Production database access during an unusual period.
+2. Authentication through an unusual network/location.
+3. Large transfer to removable media.
+4. Attempted transfer to a non-approved external SFTP destination.
+5. Modification of sensitive database audit configuration.
+6. Lateral access toward HR systems.
+7. Authentication activity from geographically inconsistent locations.
+
+INTERPRETATION
+--------------
+
+The combination of these indicators represents a high-priority security
+investigation.
+
+However, the evidence does not by itself establish whether the legitimate
+DBA performed the actions or whether an attacker controlled the DBA's
+identity/workstation.
+
+The investigation must establish:
+
+A. WHO performed the actions?
+B. WHICH device generated them?
+C. HOW was authentication obtained?
+D. WAS MFA legitimately completed, bypassed, or abused?
+E. WAS the DBA physically present?
+F. WHAT data was accessed?
+G. WHAT data was actually copied?
+H. WHERE did copied data go?
+I. WAS there persistence or malware?
+J. WAS the activity authorized?
+K. DID another identity participate?
+L. WAS audit evidence deleted or modified?
+
+HIGH-VALUE CORRELATIONS
+-----------------------
+
+Correlate:
+- Okta authentication
+- MFA events
+- VPN session
+- EDR device telemetry
+- Database sessions
+- Database audit records
+- USB/DLP events
+- Network flows
+- SFTP connection attempts
+- HR-system access
+- Change-management records
+
+Do not infer intent solely from:
+- Time of day
+- Geographic location
+- Public Wi-Fi
+- Employee seniority
+- Tenure
+- Security-clearance history
+
+Those characteristics are investigative context rather than proof of
+malicious intent.

@@ -1,0 +1,85 @@
+SCENARIO 2 - DBA WORKSTATION FORENSIC CHECKLIST
+================================================
+
+PRESERVATION
+------------
+- Isolate the endpoint according to incident-response procedure.
+- Preserve volatile evidence where authorized.
+- Record system time and timezone.
+- Acquire forensic images using approved procedures.
+- Hash forensic acquisitions.
+- Preserve EDR telemetry.
+
+PROCESS ANALYSIS
+----------------
+Review:
+- Process trees
+- Parent/child relationships
+- Command lines
+- Unsigned executables
+- Recently executed binaries
+- PowerShell activity
+- WMI activity
+- Scripting engines
+- Remote-access software
+
+PERSISTENCE
+-----------
+Review:
+- Scheduled tasks
+- Services
+- Startup entries
+- Registry RUN keys
+- WMI subscriptions
+- Login scripts
+- Browser extensions
+- VPN configuration
+- Proxy/PAC configuration
+
+FILE SYSTEM
+-----------
+Review:
+- Recently created files
+- Recently modified files
+- Staging directories
+- Temporary files
+- Deleted files
+- USB-related file activity
+- Large archive files
+
+WINDOWS FORENSICS
+-----------------
+Where applicable, analyze:
+- Registry hives
+- Event logs
+- Prefetch
+- Amcache
+- Shimcache
+- MFT
+- USN Journal
+- Browser history/cache
+
+MEMORY
+------
+If authorized:
+- Acquire a memory image.
+- Search for suspicious processes.
+- Investigate injected code.
+- Identify network connections.
+- Look for credential-access artifacts.
+- Investigate rootkit/bootkit indicators.
+
+MALWARE QUESTIONS
+-----------------
+If malware is discovered:
+1. Initial infection vector
+2. Persistence mechanism
+3. Command-and-control behavior
+4. Credential access
+5. Data staging
+6. Data transfer
+7. Other affected hosts
+8. Additional identities used
+
+All malware analysis should be performed on forensic copies in an
+isolated analysis environment.

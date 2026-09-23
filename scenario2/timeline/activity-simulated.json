@@ -1,0 +1,63 @@
+[
+  {
+    "timestamp": "2026-09-23T01:48:12Z",
+    "source": "Okta",
+    "identity": "dba-senior-01",
+    "event": "Successful authentication",
+    "source_network": "simulated-public-wifi",
+    "risk": "ANOMALOUS"
+  },
+  {
+    "timestamp": "2026-09-23T01:52:44Z",
+    "source": "VPN",
+    "identity": "dba-senior-01",
+    "event": "VPN session established",
+    "source_network": "simulated-public-wifi"
+  },
+  {
+    "timestamp": "2026-09-23T02:03:19Z",
+    "source": "Database",
+    "identity": "dba-senior-01",
+    "event": "Production database connection",
+    "classification": "PHI"
+  },
+  {
+    "timestamp": "2026-09-23T02:11:07Z",
+    "source": "Database",
+    "identity": "dba-senior-01",
+    "event": "Sensitive schema audit logging modified",
+    "command": "SIMULATED ALTER SESSION",
+    "risk": "HIGH"
+  },
+  {
+    "timestamp": "2026-09-23T02:19:36Z",
+    "source": "EDR/DLP",
+    "identity": "dba-senior-01",
+    "event": "Large data transfer to removable media",
+    "volume": "500GB",
+    "risk": "CRITICAL"
+  },
+  {
+    "timestamp": "2026-09-23T02:27:51Z",
+    "source": "Network",
+    "identity": "dba-senior-01",
+    "event": "Attempted transfer to non-approved SFTP destination",
+    "destination_region": "Russia",
+    "status": "BLOCKED",
+    "risk": "CRITICAL"
+  },
+  {
+    "timestamp": "2026-09-23T02:34:20Z",
+    "source": "Database/HR",
+    "identity": "dba-senior-01",
+    "event": "Attempted access to personnel records",
+    "risk": "HIGH"
+  },
+  {
+    "timestamp": "2026-09-23T02:41:02Z",
+    "source": "Okta",
+    "identity": "dba-senior-01",
+    "event": "Authentication from geographically inconsistent location",
+    "risk": "ANOMALOUS"
+  }
+]
