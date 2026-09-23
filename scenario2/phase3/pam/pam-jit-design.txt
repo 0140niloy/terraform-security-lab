@@ -1,0 +1,119 @@
+SCENARIO 2 - PHASE 3
+PRIVILEGED ACCESS MANAGEMENT AND JUST-IN-TIME ADMINISTRATION
+
+STATUS: SIMULATION / DEFENSIVE DESIGN
+
+OBJECTIVE
+Redesign privileged access for senior database administrators so that
+persistent high-privilege access is minimized and every privileged session
+is attributable, time-limited, approved, monitored, and reviewable.
+
+1. JUST-IN-TIME ACCESS
+
+Privileged database access should be granted only when required.
+
+Required controls:
+- No permanent standing production DBA privilege where technically feasible.
+- Access request must identify system, database, purpose, ticket/change ID,
+  requested duration, and requested privilege level.
+- Approval required before privilege activation.
+- Credentials automatically expire at the end of the approved window.
+- Emergency access must generate a high-priority audit event.
+- Dormant privileged accounts must be disabled or reviewed.
+
+Example policy:
+Request -> Approval -> Temporary Credential -> PAM Proxy -> Database
+-> Session Recording -> Automatic Expiration -> Review
+
+2. PAM PROXY
+
+All privileged production access should pass through an approved PAM
+gateway or equivalent controlled access path.
+
+The PAM layer should record:
+- Administrator identity
+- Source device
+- Authentication method
+- Approval/ticket reference
+- Start/end timestamps
+- Target database/system
+- Commands or database operations where supported
+- Session metadata
+- Screen/session recording where legally and operationally appropriate
+
+Session recording must be governed by privacy, employment, legal, and
+retention requirements.
+
+3. DUAL APPROVAL
+
+High-risk operations should require a second authorized approver.
+
+Examples:
+- Bulk patient-record export
+- Database audit configuration changes
+- Large-scale DELETE operations
+- Production schema changes
+- Security-control changes
+- Access to exceptionally sensitive datasets
+
+4. TIME-LIMITED CREDENTIALS
+
+Privileged credentials should:
+- Have short validity periods.
+- Be unique to the administrator/session where possible.
+- Never be shared between administrators.
+- Be automatically revoked after expiration.
+- Be rotated according to organizational policy.
+
+5. STRONG AUTHENTICATION
+
+Privileged access should require phishing-resistant MFA where supported.
+
+Preferred control:
+- FIDO2/WebAuthn security keys or equivalent phishing-resistant
+  authentication.
+
+Additional controls:
+- Device trust verification
+- Managed endpoint requirement
+- Geographic/network anomaly detection
+- Session risk evaluation
+
+6. AUTOMATIC SESSION TERMINATION
+
+Sessions should terminate automatically when:
+- Approved access window expires.
+- Administrator account is disabled.
+- Device trust is revoked.
+- Risk score crosses an organization-defined threshold.
+- Security incident response requires termination.
+
+7. PRIVILEGED SESSION MONITORING
+
+Generate alerts for:
+- Bulk SELECT/export operations
+- Sensitive schema access
+- Audit logging modification
+- Unusual access times
+- New geographic locations
+- Unknown devices
+- Concurrent sessions from inconsistent locations
+- Access to systems outside normal administrative responsibilities
+
+8. GOVERNANCE
+
+PAM policies must be reviewed by:
+- Security
+- IT operations
+- Database administration
+- Privacy/compliance
+- HR where workforce controls are involved
+- Legal/counsel where required
+
+DESIGN PRINCIPLE
+
+Privileged access should be temporary, attributable, approved,
+continuously monitored, and automatically revoked.
+
+This document does not authorize deployment or modification of any
+production environment.

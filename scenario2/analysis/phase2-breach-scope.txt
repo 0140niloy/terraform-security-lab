@@ -1,0 +1,272 @@
+SCENARIO 2 — PHASE 2 DATA BREACH SCOPE ASSESSMENT
+============================================================
+
+SIMULATION ONLY — FORENSIC TRAINING EXERCISE
+
+OBJECTIVE
+---------
+
+Determine the scope of potentially accessed PHI, determine whether data
+actually left controlled systems, identify patient-safety implications,
+and document the regulatory evidence required for a HIPAA assessment.
+
+
+1. CURRENT EVIDENCE POSITION
+------------------------------------------------------------
+
+The synthetic evidence establishes:
+
+- PHI database access by dba-senior-01;
+- a simulated bulk query involving 125,000 rows;
+- a simulated export operation;
+- a simulated 500 GiB removable-media transfer attempt;
+- DLP BLOCKED the removable-media transfer;
+- an attempted external SFTP transfer was BLOCKED;
+- attempted access to HR personnel records was BLOCKED.
+
+The current evidence does NOT establish:
+
+- exactly 125,000 unique patients were affected;
+- that all queried records were copied;
+- that 500 GiB of PHI left the organization;
+- that the external SFTP destination received data;
+- that any patient record was deleted;
+- that any patient experienced harm.
+
+
+2. EXACT PATIENT-SCOPE DETERMINATION
+------------------------------------------------------------
+
+Current status:
+
+EXACT PATIENT COUNT: NOT YET DETERMINED
+
+The simulated value of 125,000 represents queried rows and must not be
+automatically converted into a patient count.
+
+Required evidence:
+
+1. Database SELECT audit records.
+2. Query predicates and execution plans.
+3. Database session identifiers.
+4. Export job manifests.
+5. Temporary-table and staging-table records.
+6. Database backup/change timestamps.
+7. DLP content inspection results.
+8. File-system metadata for exported datasets.
+9. Network flow records.
+10. Destination-side evidence where legally and technically available.
+11. Patient identifier mapping.
+12. Duplicate-record analysis.
+
+Final patient count must be calculated from unique affected patient
+identifiers after correlating all confirmed access/export events.
+
+
+3. PHI CATEGORY ANALYSIS
+------------------------------------------------------------
+
+The investigation must determine whether affected records contain:
+
+- patient identifiers;
+- names;
+- addresses;
+- dates of birth;
+- Social Security numbers;
+- medical record numbers;
+- diagnoses;
+- medications;
+- allergies;
+- procedures;
+- laboratory results;
+- imaging information;
+- insurance information;
+- billing information;
+- genetic information;
+- mental-health information;
+- substance-use information;
+- reproductive-health information;
+- other specially sensitive clinical information.
+
+Current synthetic evidence:
+
+PHI ACCESS: ESTABLISHED
+EXACT PHI CATEGORIES: NOT YET DETERMINED
+
+
+4. DATA-MOVEMENT ASSESSMENT
+------------------------------------------------------------
+
+REMOVABLE MEDIA:
+
+Simulated volume:
+500 GiB
+
+Control result:
+BLOCKED BY DLP
+
+Conclusion:
+Attempted transfer is established in the simulation.
+Successful transfer is NOT established.
+
+
+EXTERNAL SFTP:
+
+Destination:
+SIMULATED non-approved external destination
+
+Result:
+BLOCKED
+
+Conclusion:
+Attempted external transfer is established.
+Successful external transfer is NOT established.
+
+
+5. DATA-DESTRUCTION ASSESSMENT
+------------------------------------------------------------
+
+Current evidence contains no simulated database deletion event.
+
+Required investigation:
+
+- DELETE statements;
+- TRUNCATE operations;
+- DROP operations;
+- UPDATE operations affecting clinical records;
+- transaction rollback records;
+- database recovery logs;
+- replication logs;
+- backup integrity;
+- application-level deletion events;
+- audit-log deletion or alteration;
+- record-availability testing.
+
+Current conclusion:
+
+NO DATA DELETION ESTABLISHED.
+
+
+6. PATIENT-SAFETY ASSESSMENT
+------------------------------------------------------------
+
+The organization must evaluate confidentiality, integrity, and
+availability separately.
+
+CONFIDENTIALITY:
+
+Potential PHI exposure is represented.
+
+INTEGRITY:
+
+No simulated modification of clinical records is currently established.
+
+AVAILABILITY:
+
+No simulated deletion or unavailability of clinical records is
+currently established.
+
+PATIENT-SAFETY RISK:
+
+NOT ESTABLISHED BY CURRENT SYNTHETIC EVIDENCE.
+
+A real investigation must specifically determine whether the affected
+systems support medication administration, prescriptions, allergies,
+diagnoses, clinical decision support, medical devices, emergency
+workflows, or other patient-care functions.
+
+
+7. POTENTIAL IMPACT CATEGORIES
+------------------------------------------------------------
+
+PHYSICAL HARM:
+
+Requires evidence that clinical information was altered, deleted,
+unavailable, or maliciously manipulated.
+
+BLACKMAIL / EXPLOITATION:
+
+Risk depends on whether sensitive categories such as mental-health,
+substance-use, reproductive-health, genetic, or other highly sensitive
+information were involved.
+
+IDENTITY THEFT:
+
+Risk depends on whether identifying and financial information was exposed.
+
+INSURANCE FRAUD:
+
+Risk depends on the presence of insurance identifiers, claims,
+billing information, and other relevant records.
+
+No category should be marked CONFIRMED until supported by record-level
+evidence.
+
+
+8. REQUIRED SCOPE-CLOSURE PROCEDURE
+------------------------------------------------------------
+
+Step 1:
+Export immutable database audit records.
+
+Step 2:
+Identify all sessions belonging to the affected identity.
+
+Step 3:
+Extract all SELECT operations involving PHI.
+
+Step 4:
+Reconstruct query predicates and affected record ranges.
+
+Step 5:
+Correlate export/staging operations.
+
+Step 6:
+Deduplicate patient identifiers.
+
+Step 7:
+Classify every affected PHI field.
+
+Step 8:
+Determine whether data crossed an organizational security boundary.
+
+Step 9:
+Determine whether any clinical records were modified or deleted.
+
+Step 10:
+Produce the final affected-patient count and PHI-category inventory.
+
+
+9. CURRENT SCOPE CONCLUSION
+------------------------------------------------------------
+
+Potentially affected PHI:
+
+YES — SYNTHETIC EVIDENCE
+
+Exact affected patients:
+
+UNKNOWN
+
+Confirmed successful exfiltration:
+
+NO
+
+Blocked transfer attempt:
+
+YES
+
+Confirmed patient harm:
+
+NO
+
+Confirmed clinical-record deletion:
+
+NO
+
+Final breach determination:
+
+PENDING RECORD-LEVEL CORRELATION
+
+
+SIMULATION ONLY.

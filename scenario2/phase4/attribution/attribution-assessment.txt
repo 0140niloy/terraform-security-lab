@@ -1,0 +1,149 @@
+SCENARIO 2 - PHASE 4
+FORENSIC ATTRIBUTION ASSESSMENT
+
+STATUS: SIMULATION / DEFENSIVE ANALYSIS
+
+OBJECTIVE
+
+Assess attribution without overstating what the available evidence can
+demonstrate.
+
+1. ATTRIBUTION LEVELS
+
+LEVEL 0 - EVENT ATTRIBUTION
+
+Determine:
+- Which account generated the event.
+- Which device generated the event.
+- Which system generated the event.
+
+LEVEL 1 - SESSION ATTRIBUTION
+
+Determine whether:
+- The authenticated session belongs to the expected user.
+- Session reuse occurred.
+- Another device used the session.
+- Token/session theft is supported.
+
+LEVEL 2 - ACTOR ATTRIBUTION
+
+Determine whether evidence supports:
+- Authorized administrator
+- Compromised administrator account
+- Compromised workstation
+- External actor
+- Multiple actors
+- Unknown
+
+2. REQUIRED EVIDENCE
+
+Potential evidence:
+- Okta session history
+- MFA records
+- Device certificates
+- Endpoint telemetry
+- Memory artifacts
+- SSH key usage
+- Client certificates
+- Browser/session artifacts
+- VPN records
+- PAM recordings
+- Network flow
+- Database activity
+- Malware indicators
+
+3. EXTERNAL ACTOR ASSESSMENT
+
+Evidence potentially relevant to external compromise includes:
+- Known malicious infrastructure
+- Credential theft indicators
+- Malware
+- Remote-access tooling
+- Session/token theft
+- Unexpected persistence
+- Unusual network communications
+
+The presence of a foreign IP or geographic location is not sufficient
+to identify a foreign government, criminal group, competitor, or other
+specific actor.
+
+4. INSIDER ASSESSMENT
+
+Potential evidence:
+- Activity outside authorized duties
+- Intentional security-control changes
+- Unauthorized data collection
+- Deliberate policy violations
+- Repeated concealment behavior
+- Evidence linking actions to the authorized individual
+
+Behavioral anomalies alone are insufficient to establish intent.
+
+5. COMPETING EXPLANATIONS
+
+For each significant event ask:
+
+A. Could an authorized administrator have performed this?
+B. Could a compromised account explain it?
+C. Could a compromised workstation explain it?
+D. Could automation or maintenance explain it?
+E. Is additional evidence required?
+
+6. ATTRIBUTION CONFIDENCE
+
+Use qualitative evidence states rather than arbitrary numerical scores:
+
+SUPPORTED:
+Multiple independent evidence sources corroborate the explanation.
+
+PARTIALLY SUPPORTED:
+Some evidence is consistent, but important gaps remain.
+
+UNSUPPORTED:
+Available evidence does not substantiate the explanation.
+
+UNRESOLVED:
+Evidence is insufficient to distinguish competing explanations.
+
+7. CURRENT SIMULATED ASSESSMENT
+
+Malicious insider:
+POSSIBLE / NOT CONFIRMED
+
+Compromised account:
+POSSIBLE / NOT CONFIRMED
+
+Compromised workstation:
+POSSIBLE / NOT CONFIRMED
+
+Operational anomaly:
+POSSIBLE / NOT CONFIRMED
+
+Successful external exfiltration:
+NOT ESTABLISHED
+
+Specific external actor:
+NOT ESTABLISHED
+
+8. ATTRIBUTION LIMITATIONS
+
+Do not make attribution based solely on:
+- IP geography
+- Nationality
+- Travel
+- Financial status
+- Personal relationships
+- Job tenure
+- Unusual work hours
+
+These factors may provide investigative context only when lawfully
+obtained and appropriately interpreted.
+
+CONCLUSION
+
+Attribution should progress from technical event attribution toward
+human attribution only when independent evidence supports each step.
+
+The correct forensic conclusion may remain unresolved.
+
+This document is a defensive attribution methodology.

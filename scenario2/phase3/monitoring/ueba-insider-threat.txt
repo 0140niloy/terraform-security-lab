@@ -1,0 +1,113 @@
+SCENARIO 2 - PHASE 3
+UEBA AND CONTINUOUS PRIVILEGED-USER MONITORING
+
+STATUS: SIMULATION / DEFENSIVE DESIGN
+
+OBJECTIVE
+Detect unusual privileged-user behavior by correlating identity, endpoint,
+database, network, DLP, and cloud telemetry.
+
+1. BASELINE
+
+Establish behavioral baselines for privileged administrators.
+
+Possible baseline dimensions:
+- Normal working hours
+- Normal source devices
+- Normal network locations
+- Normal databases
+- Normal query volume
+- Normal export volume
+- Normal administrative actions
+- Normal geographic patterns
+- Normal session duration
+
+A baseline is a detection aid, not evidence of malicious intent.
+
+2. HIGH-RISK EVENTS
+
+Generate alerts for combinations such as:
+- Privileged login at unusual time
+- New device
+- New geographic location
+- Concurrent geographically inconsistent sessions
+- Bulk patient-record access
+- Audit logging modification
+- Large removable-media transfer
+- Access to unrelated HR systems
+- Attempted transfer to non-approved destination
+
+3. RISK CORRELATION
+
+Correlate:
+Okta + PAM + VPN + EDR + Database Audit + DLP + Network Flow
+
+Example:
+
+Unusual login
++
+Unknown device
++
+Sensitive DB access
++
+Audit configuration change
++
+Large data movement
+=
+HIGH-PRIORITY INVESTIGATION
+
+This correlation does not automatically establish malicious intent.
+
+4. REAL-TIME RESPONSE
+
+Depending on organizational policy and confidence level:
+- Alert SOC
+- Require additional authentication
+- Suspend temporary privileged access
+- Terminate PAM session
+- Block data transfer
+- Isolate endpoint
+- Preserve evidence
+- Escalate to incident response
+
+High-impact automated actions should have documented safeguards against
+false positives.
+
+5. INSIDER THREAT PROGRAM
+
+The program should include:
+- Clearly documented governance
+- Privacy safeguards
+- Legal/HR oversight
+- Least-privilege access
+- Defined investigation procedures
+- Evidence handling
+- Employee notification requirements where applicable
+
+6. HUMAN FACTORS
+
+Do not classify an employee as malicious based solely on:
+- Nationality
+- Financial status
+- Location
+- Travel
+- Tenure
+- Personal relationships
+- Unusual working hours
+
+Such information requires appropriate legal, privacy, and HR authority
+and must be evaluated alongside objective technical evidence.
+
+7. RISK SCORING
+
+Risk scores should be used to prioritize investigation, not to make
+automatic findings of guilt.
+
+Every high-risk case should remain subject to human review.
+
+DESIGN PRINCIPLE
+
+Behavioral analytics should identify combinations of anomalous activity
+while preserving due process, privacy, and evidence-based investigation.
+
+This document is a defensive monitoring design.

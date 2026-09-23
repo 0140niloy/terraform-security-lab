@@ -1,0 +1,266 @@
+SCENARIO 2 - MASTER FORENSIC EVIDENCE INDEX
+
+STATUS: SIMULATION / DEFENSIVE INCIDENT-RESPONSE LAB
+
+INCIDENT:
+Sophisticated Hybrid Cloud Insider Threat With Compliance Complexity
+
+ENVIRONMENT:
+- Healthcare organization
+- On-premises HIPAA-controlled datacenter
+- AWS GovCloud
+- Okta SaaS
+- Production patient databases
+- HR systems
+- EDR/DLP
+- VPN/proxy infrastructure
+
+IMPORTANT:
+All evidence in this repository is synthetic/simulated.
+It must not be interpreted as evidence of a real incident.
+
+======================================================================
+PHASE 1 - BEHAVIORAL ANALYSIS AND THREAT ACTOR ASSESSMENT
+======================================================================
+
+ANALYSIS
+
+scenario2/analysis/hypotheses.txt
+Four competing hypotheses:
+H1 malicious insider
+H2 compromised account
+H3 compromised workstation
+H4 operational anomaly
+
+scenario2/analysis/initial-assessment.txt
+Initial investigation scope and investigative priorities.
+
+scenario2/analysis/objective-assessment.txt
+Evidence-based assessment of competing hypotheses.
+
+scenario2/analysis/evidence-matrix.txt
+Compatibility matrix for the competing hypotheses.
+
+scenario2/analysis/phase1-investigation-report.txt
+Consolidated Phase 1 forensic investigation report.
+
+TIMELINE
+
+scenario2/timeline/activity-simulated.json
+Synthetic event timeline.
+
+scenario2/timeline/consolidated-timeline.txt
+Normalized chronological reconstruction.
+
+IDENTITY / OKTA
+
+scenario2/evidence/okta/authentication-simulated.json
+Synthetic authentication and session events.
+
+scenario2/evidence/okta/mfa-events-simulated.json
+Synthetic MFA and session-reuse events.
+
+scenario2/evidence/identity/credential-artifacts-simulated.json
+Synthetic SSH key, certificate, credential, and session-artifact review.
+
+ENDPOINT / EDR
+
+scenario2/evidence/edr/process-tree-simulated.json
+Synthetic process execution chain.
+
+scenario2/evidence/edr/persistence-review-simulated.json
+Persistence mechanism review.
+
+scenario2/evidence/edr/endpoint-integrity-simulated.json
+Endpoint integrity and credential-artifact assessment.
+
+scenario2/evidence/edr/memory-analysis-simulated.json
+Synthetic memory-analysis findings.
+
+scenario2/evidence/edr/malware-analysis-simulated.json
+Synthetic malware/infection-vector assessment.
+
+scenario2/evidence/edr/supply-chain-review-simulated.json
+Synthetic software and supply-chain review.
+
+DATABASE
+
+scenario2/evidence/database/db-audit-simulated.json
+Synthetic database audit events.
+
+scenario2/evidence/database/audit-gap-simulated.json
+Synthetic audit logging gap.
+
+scenario2/database/database-forensics.txt
+Database investigation methodology.
+
+NETWORK
+
+scenario2/evidence/network/lateral-movement-simulated.json
+Synthetic lateral movement and HR access attempts.
+
+scenario2/evidence/network/vpn-proxy-simulated.json
+Synthetic VPN/proxy activity.
+
+scenario2/evidence/network/session-correlation-simulated.json
+Synthetic session-correlation analysis.
+
+scenario2/evidence/network/flow-simulated.json
+Synthetic network-flow data.
+
+scenario2/network/network-lateral-movement.txt
+Lateral-movement investigation methodology.
+
+DLP
+
+scenario2/evidence/dlp/usb-transfer-simulated.json
+Synthetic removable-media transfer event.
+
+======================================================================
+PHASE 2 - BREACH SCOPE AND COMPLIANCE
+======================================================================
+
+scenario2/analysis/phase2-breach-scope.txt
+Data-scope and patient-impact assessment.
+
+scenario2/compliance/hipaa-notification-assessment.txt
+HIPAA notification and compliance assessment.
+
+scenario2/compliance/chain-of-custody-phase2.txt
+Forensic evidence preservation and chain-of-custody requirements.
+
+======================================================================
+PHASE 3 - ACCESS CONTROL REDESIGN
+======================================================================
+
+scenario2/phase3/pam/pam-jit-design.txt
+Just-in-time privileged access and PAM architecture.
+
+scenario2/phase3/iam/fido2-privileged-access.txt
+Phishing-resistant privileged authentication.
+
+scenario2/phase3/database/data-access-governance.txt
+Database least privilege and PHI access separation.
+
+scenario2/phase3/dlp/dlp-architecture.txt
+DLP and external data-transfer controls.
+
+scenario2/phase3/crypto/hsm-key-separation.txt
+HSM-backed encryption and key-management separation.
+
+scenario2/phase3/monitoring/ueba-insider-threat.txt
+UEBA and continuous privileged-user monitoring.
+
+scenario2/phase3/workstation/admin-golden-image.txt
+Privileged administrative workstation architecture.
+
+scenario2/phase3/runbooks/insider-threat-response.txt
+Insider-threat incident-response runbook.
+
+scenario2/phase3/phase3-control-matrix.txt
+Consolidated security-control implementation matrix.
+
+======================================================================
+PHASE 4 - ADVANCED FORENSICS AND RECOVERY
+======================================================================
+
+scenario2/phase4/expert-witness-report.txt
+Forensic expert-witness report structure.
+
+scenario2/phase4/correlation/cross-source-analysis.txt
+Cross-source forensic correlation methodology.
+
+scenario2/phase4/attribution/attribution-assessment.txt
+Evidence-based attribution methodology.
+
+scenario2/phase4/recovery/long-term-monitoring.txt
+Two-year recovery and enhanced monitoring plan.
+
+======================================================================
+CURRENT SYNTHETIC INCIDENT SUMMARY
+======================================================================
+
+Synthetic events include:
+
+01:47:58 - Privileged identity authentication
+01:48:11 - Session creation
+01:52:44 - VPN session
+02:03:19 - Production database connection
+02:11:07 - Sensitive audit configuration change
+02:12:22 - Bulk patient-record query
+02:16:48 - Simulated export operation
+02:19:36 - USB connection
+02:19:41 - Simulated 500 GiB DLP transfer attempt
+02:27:51 - Blocked non-approved external SFTP attempt
+02:28:14 - HR-system connection
+02:30:02 - Blocked personnel-record access attempt
+02:31:19 - Blocked employee-financial-record access attempt
+02:41:02 - Geographic/session inconsistency
+
+======================================================================
+CURRENT FORENSIC POSITION
+======================================================================
+
+The synthetic evidence is consistent with suspicious privileged activity.
+
+The following remain unresolved:
+
+- Malicious insider vs compromised account
+- Workstation compromise vs legitimate workstation use
+- Whether data actually left the organization
+- Exact number of affected patients
+- Exact PHI categories exposed
+- Whether any records were modified/deleted
+- Root cause of the audit gap
+- Source of geographic/session inconsistency
+- Human or external actor attribution
+
+The 500 GiB USB value represents synthetic telemetry and must not be
+treated as proof that 500 GiB of patient data successfully left the
+organization.
+
+The blocked SFTP event does not establish successful external
+exfiltration.
+
+No specific external actor is attributed.
+
+======================================================================
+EVIDENCE HANDLING
+======================================================================
+
+Original evidence should be preserved.
+
+Analysis should be performed on forensic copies.
+
+For every evidence item record:
+- Evidence ID
+- Source
+- Acquisition timestamp
+- Collector
+- Acquisition method
+- SHA-256 hash
+- Storage location
+- Access history
+- Purpose of access
+
+All timestamps should be normalized and the original timezone retained.
+
+======================================================================
+FINAL PRINCIPLE
+======================================================================
+
+The investigation should distinguish:
+
+FACT
+Directly demonstrated by evidence.
+
+INFERENCE
+Reasonable interpretation supported by multiple sources.
+
+HYPOTHESIS
+An explanation requiring further testing.
+
+UNRESOLVED
+Insufficient evidence for a reliable conclusion.
+
+This evidence index describes a synthetic defensive cybersecurity lab.

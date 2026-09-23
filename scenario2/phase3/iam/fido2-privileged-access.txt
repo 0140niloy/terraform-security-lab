@@ -1,0 +1,82 @@
+SCENARIO 2 - PHASE 3
+PHISHING-RESISTANT PRIVILEGED AUTHENTICATION
+
+STATUS: SIMULATION / DEFENSIVE DESIGN
+
+OBJECTIVE
+Reduce the risk of credential theft, phishing, session hijacking, and
+unauthorized privileged access.
+
+1. AUTHENTICATION REQUIREMENT
+
+Privileged identities should use phishing-resistant MFA.
+
+Preferred mechanism:
+- FIDO2/WebAuthn security key or equivalent approved technology.
+
+Password-only authentication should not be permitted for high-risk
+production administration.
+
+2. IDENTITY CONDITIONS
+
+Privileged access should require:
+- Known administrator identity
+- Approved managed device
+- Valid device posture
+- Valid PAM authorization
+- Current access approval
+- Phishing-resistant authentication
+- Appropriate network/security context
+
+3. SESSION CONTROLS
+
+Identity providers should record:
+- Authentication timestamp
+- Device identifier
+- Authentication method
+- MFA result
+- Session creation
+- Session reuse
+- Session termination
+- Risk/anomaly signals
+
+4. SESSION REUSE INVESTIGATION
+
+Unexpected session reuse must trigger investigation of:
+- Token/session theft
+- Excessive session lifetime
+- Device compromise
+- Browser compromise
+- MFA/session policy weaknesses
+- VPN/proxy behavior
+
+Session reuse alone must not be treated as proof of credential theft.
+
+5. BREAK-GLASS ACCESS
+
+Emergency access should:
+- Require documented justification.
+- Generate immediate high-priority alerts.
+- Use separate emergency credentials.
+- Be time-limited.
+- Be reviewed after use.
+- Never become the normal administrative path.
+
+6. ACCESS REVIEW
+
+Privileged identities should undergo periodic review for:
+- Current job responsibilities
+- Required systems
+- Current privileges
+- Dormant permissions
+- Separation-of-duties conflicts
+- Unused credentials
+
+DESIGN PRINCIPLE
+
+Strong authentication must be combined with device trust, authorization,
+session controls, and monitoring. MFA alone does not eliminate account
+compromise risk.
+
+This document is a defensive architecture specification and does not
+provide instructions for bypassing authentication.

@@ -1,0 +1,210 @@
+SCENARIO 2 - PHASE 4
+FORENSIC EXPERT WITNESS REPORT
+
+STATUS: SIMULATION / DEFENSIVE FORENSIC TEMPLATE
+
+1. ENGAGEMENT AND SCOPE
+
+Matter:
+Investigation of suspected privileged-account misuse involving a senior
+database administrator in a hybrid healthcare environment.
+
+Systems in scope:
+- Okta identity services
+- VPN/proxy infrastructure
+- Privileged access systems
+- DBA workstation
+- Production databases
+- Database audit infrastructure
+- DLP/EDR
+- Network telemetry
+- Relevant cloud infrastructure
+- HR systems where legally authorized
+
+The investigation is limited to evidence authorized for collection and
+analysis.
+
+2. QUESTIONS PRESENTED
+
+The investigation should determine:
+
+1. What activity occurred?
+2. Which accounts, devices, systems, and datasets were involved?
+3. Was the DBA account compromised?
+4. Was the administrator's workstation compromised?
+5. Did unauthorized access occur?
+6. Did patient information leave the organization?
+7. Was data modified or deleted?
+8. Could patient safety have been affected?
+9. Does evidence support malicious insider activity?
+10. Are alternative explanations supported by the evidence?
+
+3. EVIDENCE
+
+Evidence categories:
+
+E01 - Okta authentication records
+E02 - MFA events
+E03 - EDR telemetry
+E04 - Endpoint forensic image
+E05 - Memory acquisition
+E06 - Database audit logs
+E07 - Database transaction logs
+E08 - DLP events
+E09 - VPN logs
+E10 - Proxy logs
+E11 - Network flow
+E12 - HR-system logs
+E13 - Backup records
+E14 - Change-management records
+E15 - PAM session records
+E16 - Cloud audit records
+
+Every item must have documented acquisition information and integrity
+verification.
+
+4. METHODOLOGY
+
+The investigation should use:
+
+- Timeline reconstruction
+- Identity correlation
+- Endpoint analysis
+- Memory analysis
+- Database-query analysis
+- Network-flow analysis
+- DLP correlation
+- Authentication/session analysis
+- Malware/persistence review
+- Change-management review
+- Data-scope reconstruction
+
+Analysis should preserve original evidence and use forensic working
+copies.
+
+5. HYPOTHESES
+
+H1 - Malicious insider
+H2 - Compromised account
+H3 - Compromised workstation
+H4 - Operational anomaly
+
+No hypothesis should be confirmed solely from behavioral anomalies.
+
+6. TECHNICAL FINDINGS
+
+Current simulated evidence establishes a suspicious sequence involving:
+
+- Privileged authentication
+- Production database access
+- Audit configuration change
+- Bulk patient-record query
+- Simulated removable-media transfer
+- Blocked external transfer
+- HR-system access attempt
+- Geographic/session inconsistency
+
+The synthetic evidence does not independently establish:
+- Successful external exfiltration
+- Credential theft
+- MFA bypass
+- Malware infection
+- Rootkit persistence
+- Malicious intent
+- Specific human attribution
+
+7. DATA IMPACT
+
+Determine:
+
+- Exact affected patient identifiers
+- Number of unique patients
+- Data categories
+- Number of records
+- Exported data
+- Successfully transmitted data
+- Blocked transfers
+- Modified records
+- Deleted records
+- Backup impact
+
+Record counts must not be interpreted as unique individuals without
+deduplication.
+
+8. PATIENT SAFETY
+
+Assess independently whether:
+- Patient records were altered.
+- Clinical systems were unavailable.
+- Clinical workflows were disrupted.
+- Incorrect information could affect treatment.
+- Patient harm is reasonably possible based on evidence.
+
+9. ATTRIBUTION
+
+Attribution must be evidence-based.
+
+Potential attribution categories:
+- Authorized user activity
+- Compromised credentials
+- Compromised endpoint
+- External actor using compromised identity
+- Insider misuse
+- Unresolved
+
+Do not attribute activity to a specific person, criminal group,
+competitor, or foreign government unless supported by sufficient evidence.
+
+10. LIMITATIONS
+
+The investigation may be limited by:
+- Disabled audit logging
+- Missing historical logs
+- Session reuse
+- Incomplete endpoint telemetry
+- Retention periods
+- Encrypted data
+- Missing database transaction records
+- Synthetic evidence
+
+Limitations must be explicitly stated in the final report.
+
+11. EXPERT OPINION STRUCTURE
+
+The final expert report should distinguish:
+
+FACT:
+What the evidence directly demonstrates.
+
+INFERENCE:
+What can reasonably be inferred from multiple evidence sources.
+
+ALTERNATIVE:
+A plausible competing explanation.
+
+UNRESOLVED:
+A question for which evidence is insufficient.
+
+12. CROSS-EXAMINATION PREPARATION
+
+The examiner should be prepared to explain:
+
+- Evidence acquisition
+- Hash verification
+- Timeline construction
+- Time-zone normalization
+- Log reliability
+- Missing evidence
+- Alternative hypotheses
+- False-positive considerations
+- Data-scope methodology
+- Attribution limitations
+
+13. CONCLUSION
+
+The final conclusion must be limited to what the evidence supports.
+
+No conclusion should state malicious intent, successful exfiltration,
+or individual attribution unless the evidentiary record supports it.
+
+This document is a forensic reporting template for a simulated incident.

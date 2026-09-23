@@ -1,0 +1,94 @@
+SCENARIO 2 - PHASE 3
+PRIVILEGED ADMINISTRATOR GOLDEN WORKSTATION
+
+STATUS: SIMULATION / DEFENSIVE DESIGN
+
+OBJECTIVE
+Provide a controlled workstation environment for privileged database
+administration and reduce the attack surface available to attackers.
+
+1. DEDICATED ADMINISTRATIVE DEVICE
+
+Privileged administration should use a managed hardened workstation or
+approved privileged access workstation (PAW).
+
+The workstation should not be used for:
+- Personal browsing
+- Personal email
+- Unapproved software
+- Entertainment
+- Uncontrolled removable media
+
+2. GOLDEN IMAGE
+
+Maintain an approved baseline containing only:
+- Required operating-system components
+- Approved database administration tools
+- Approved VPN/PAM client
+- Endpoint security agent
+- Logging/monitoring components
+- Required certificate infrastructure
+
+3. APPLICATION CONTROL
+
+Use application allowlisting where appropriate.
+
+Unapproved executables, scripts, browser extensions, and administrative
+utilities should be prevented from running.
+
+4. REMOVABLE MEDIA
+
+Default policy:
+- Block USB storage.
+- Permit exceptions only through approved workflow.
+- Require encrypted organizational media where an exception is necessary.
+- Record user, device, purpose, and transfer details.
+
+5. ENDPOINT TELEMETRY
+
+Monitor:
+- Process creation
+- Authentication
+- Privileged operations
+- Network connections
+- Persistence mechanisms
+- Security-control changes
+- USB activity
+- Configuration changes
+
+6. INTEGRITY
+
+Periodically verify:
+- Operating-system integrity
+- Security-agent health
+- Configuration baseline
+- Approved software versions
+- Certificates
+- SSH configuration
+- Administrative tooling
+
+7. INCIDENT RESPONSE
+
+If compromise is suspected:
+- Preserve volatile evidence where appropriate.
+- Preserve disk evidence.
+- Isolate according to incident-response procedures.
+- Revoke active privileged sessions.
+- Rotate affected credentials.
+- Compare system against the approved golden baseline.
+
+8. SESSION RECORDING
+
+Privileged activity should preferably occur through an approved PAM
+session so that administrative actions can be reconstructed.
+
+Recording must comply with privacy, employment, retention, and legal
+requirements.
+
+DESIGN PRINCIPLE
+
+Privileged administration should occur from a controlled, monitored,
+minimal-purpose computing environment.
+
+This document does not provide malware, keylogger, or credential-
+interception instructions.

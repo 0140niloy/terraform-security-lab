@@ -1,0 +1,141 @@
+SCENARIO 2 - PHASE 3
+PRIVILEGED INSIDER-THREAT RESPONSE RUNBOOK
+
+STATUS: SIMULATION / DEFENSIVE DESIGN
+
+OBJECTIVE
+Provide a controlled response process when suspicious privileged-user
+activity is detected.
+
+PHASE 1 - DETECT
+
+Trigger examples:
+- Bulk PHI access
+- Audit-log modification
+- Unauthorized export
+- Unknown privileged device
+- Geographic session inconsistency
+- Unauthorized HR access
+- DLP block
+- Suspicious PAM session
+
+PHASE 2 - TRIAGE
+
+Immediately establish:
+- User/account
+- Device
+- Active sessions
+- Systems accessed
+- Data involved
+- Current transfer status
+- Security-control changes
+- Whether patient safety may be affected
+
+Do not assume intent at this stage.
+
+PHASE 3 - CONTAIN
+
+Depending on evidence and organizational policy:
+- Suspend or restrict privileged access.
+- Terminate active PAM sessions.
+- Revoke temporary credentials.
+- Isolate a compromised endpoint.
+- Block suspicious data-transfer paths.
+- Protect audit infrastructure.
+
+Containment actions must preserve evidence whenever possible.
+
+PHASE 4 - PRESERVE
+
+Preserve:
+- Identity-provider logs
+- PAM recordings
+- Endpoint telemetry
+- Memory where appropriate
+- Disk images
+- Database audit logs
+- Database transaction logs
+- DLP events
+- VPN/proxy logs
+- Network flow
+- Cloud audit logs
+- Relevant change-management records
+
+Record hashes, acquisition details, timestamps, investigator identity,
+and evidence location.
+
+PHASE 5 - INVESTIGATE
+
+Evaluate competing hypotheses:
+
+H1 - Malicious insider
+H2 - Compromised account
+H3 - Compromised workstation
+H4 - Operational anomaly
+
+Use objective evidence to update each hypothesis.
+
+PHASE 6 - PATIENT SAFETY
+
+Separately evaluate:
+- Whether patient records were modified.
+- Whether clinical systems were affected.
+- Whether availability was affected.
+- Whether incorrect information could reach clinical workflows.
+- Whether patient harm is plausible.
+
+Confidentiality, integrity, availability, and patient safety must be
+assessed separately.
+
+PHASE 7 - LEGAL / PRIVACY ESCALATION
+
+Coordinate with:
+- Incident response
+- Privacy officer
+- Compliance
+- Legal counsel
+- HR where appropriate
+- Executive leadership
+- Law enforcement when legally appropriate
+
+Personal financial, employment, travel, or relationship information must
+only be investigated with appropriate authorization.
+
+PHASE 8 - RECOVERY
+
+After containment:
+- Restore trusted configurations.
+- Rotate affected credentials.
+- Review privileged permissions.
+- Validate audit logging.
+- Verify endpoint integrity.
+- Review DLP policies.
+- Confirm monitoring coverage.
+
+PHASE 9 - LESSONS LEARNED
+
+Document:
+- Root cause or unresolved hypotheses
+- Control failures
+- Detection opportunities
+- Patient impact
+- Data exposure
+- Required architectural changes
+- Follow-up monitoring
+
+EXIT CRITERIA
+
+Incident response should not close until:
+- Evidence is preserved.
+- Scope is documented.
+- Required notifications are evaluated.
+- Access controls are reviewed.
+- Patient safety assessment is complete.
+- Remediation actions have owners and deadlines.
+
+DESIGN PRINCIPLE
+
+Contain safely, preserve evidence, investigate objectively, protect
+patients, and restore trusted operations.
+
+This runbook is for defensive incident response only.

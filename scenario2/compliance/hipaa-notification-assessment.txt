@@ -1,0 +1,177 @@
+SCENARIO 2 — HIPAA BREACH NOTIFICATION ASSESSMENT
+============================================================
+
+SIMULATION ONLY
+
+IMPORTANT:
+This document is a training artifact, not legal advice.
+
+
+1. REGULATORY FRAMEWORK
+------------------------------------------------------------
+
+The HIPAA Breach Notification Rule governs breaches of unsecured
+protected health information.
+
+For a confirmed breach affecting 500 or more individuals:
+
+- Individual notice is required without unreasonable delay and no later
+  than 60 days after discovery.
+- Notice to HHS/OCR is required without unreasonable delay and no later
+  than 60 days after discovery.
+- Prominent-media notice is required when the breach affects more than
+  500 residents of a State or jurisdiction.
+
+For fewer than 500 affected individuals, HHS reporting follows the
+separate annual-reporting mechanism.
+
+The organization must determine whether the event legally constitutes
+a breach before final notification decisions are made.
+
+
+2. CURRENT SIMULATION STATUS
+------------------------------------------------------------
+
+Confirmed PHI access:
+YES
+
+Confirmed unauthorized disclosure:
+NOT YET ESTABLISHED
+
+Confirmed successful exfiltration:
+NO
+
+Exact affected individuals:
+NOT YET DETERMINED
+
+Therefore:
+
+FINAL HIPAA BREACH NOTIFICATION DECISION:
+PENDING LEGAL / PRIVACY / FORENSIC REVIEW
+
+
+3. INFORMATION REQUIRED FOR OCR REPORT
+------------------------------------------------------------
+
+The organization should be prepared to document:
+
+- discovery date;
+- incident date or date range;
+- nature of the incident;
+- systems involved;
+- types of PHI involved;
+- number of affected individuals;
+- whether PHI was acquired or viewed;
+- whether data was actually exfiltrated;
+- containment actions;
+- mitigation measures;
+- corrective actions;
+- contact information for the organization.
+
+
+4. OCR INVESTIGATION PREPARATION
+------------------------------------------------------------
+
+Preserve:
+
+- forensic timeline;
+- database audit records;
+- Okta records;
+- VPN records;
+- EDR telemetry;
+- DLP events;
+- network flows;
+- change-management records;
+- security policies;
+- risk assessments;
+- workforce-access policies;
+- incident-response procedures;
+- training records;
+- evidence chain of custody.
+
+
+5. SECURITY RULE CONTROL REVIEW
+------------------------------------------------------------
+
+ACCESS CONTROL
+--------------
+Was the DBA authorized to access patient-level data?
+
+AUDIT CONTROLS
+--------------
+Why could sensitive-schema audit logging be altered?
+
+AUTHENTICATION
+--------------
+Why could session contexts change without a new simulated MFA event?
+
+INFORMATION ACCESS MANAGEMENT
+-----------------------------
+Was patient-level access necessary for the DBA's job function?
+
+INTEGRITY
+---------
+Were clinical records modified or deleted?
+
+TRANSMISSION SECURITY
+---------------------
+Why was an external SFTP attempt possible before being blocked?
+
+WORKFORCE SECURITY
+------------------
+Were privileged-user access rights appropriately limited and reviewed?
+
+RISK ANALYSIS
+-------------
+Did the organization's existing risk analysis identify privileged DBA
+and hybrid-cloud insider-threat scenarios?
+
+
+6. CONTROL-GAP QUESTIONS
+------------------------------------------------------------
+
+1. Can DBAs directly view patient-level PHI?
+2. Can DBAs modify database audit configuration?
+3. Can privileged sessions bypass centralized monitoring?
+4. Can administrative credentials be reused across devices?
+5. Can privileged users connect from unmanaged devices?
+6. Are removable-media controls enforced technically?
+7. Are external destinations restricted?
+8. Are database audit logs immutable?
+9. Are privileged sessions recorded?
+10. Are emergency-access procedures documented and monitored?
+
+
+7. CORRECTIVE-ACTION DOCUMENTATION
+------------------------------------------------------------
+
+Potential corrective actions:
+
+- privileged-access redesign;
+- database least privilege;
+- immutable audit logging;
+- centralized session monitoring;
+- stronger device trust;
+- hardware-backed authentication;
+- DLP improvements;
+- removable-media restrictions;
+- improved network egress controls;
+- UEBA;
+- periodic privileged-access review;
+- insider-threat response procedures.
+
+
+8. PENALTY ASSESSMENT
+------------------------------------------------------------
+
+Do NOT calculate a fixed civil-money-penalty amount from the assignment's
+"$100-$1.5M per violation" statement.
+
+HIPAA civil money penalties are subject to statutory categories,
+circumstances, inflation adjustments, and enforcement rules.
+
+A real assessment should use the current HHS/OCR penalty schedule and
+the facts of the specific violation.
+
+
+SIMULATION ONLY.

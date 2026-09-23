@@ -1,0 +1,419 @@
+SCENARIO 2 - PHASE 3
+HYBRID CLOUD ACCESS CONTROL REDESIGN
+CONTROL IMPLEMENTATION MATRIX
+
+STATUS: SIMULATION / DEFENSIVE DESIGN
+
+OBJECTIVE
+
+Translate the Phase 3 findings into a structured security-control
+implementation plan covering privileged access, identity, databases,
+DLP, encryption, endpoint security, and continuous monitoring.
+
+======================================================================
+CONTROL 01 - JUST-IN-TIME PRIVILEGED ACCESS
+======================================================================
+
+Risk:
+Persistent privileged access increases the impact of account compromise.
+
+Control:
+Implement JIT access through an approved PAM platform.
+
+Requirements:
+- Time-limited authorization
+- Business justification
+- Ticket/change reference
+- Approval workflow
+- Automatic expiration
+- Session attribution
+- Session monitoring
+
+Owner:
+IAM / Security Operations
+
+Priority:
+CRITICAL
+
+Validation:
+Verify that an administrator cannot retain production privilege after
+the approved access window expires.
+
+======================================================================
+CONTROL 02 - PRIVILEGED SESSION RECORDING
+======================================================================
+
+Risk:
+Administrative activity cannot be reliably reconstructed without
+centralized session visibility.
+
+Control:
+Route privileged production sessions through PAM.
+
+Requirements:
+- User identity
+- Source device
+- Target system
+- Session timestamps
+- Administrative activity
+- Recording where legally appropriate
+- Tamper-resistant storage
+
+Owner:
+Security Operations
+
+Priority:
+HIGH
+
+Validation:
+Reconstruct a controlled test session from PAM evidence.
+
+======================================================================
+CONTROL 03 - PHISHING-RESISTANT MFA
+======================================================================
+
+Risk:
+Password and conventional MFA compromise can expose privileged accounts.
+
+Control:
+Require FIDO2/WebAuthn or equivalent phishing-resistant authentication
+for privileged access.
+
+Owner:
+IAM
+
+Priority:
+CRITICAL
+
+Validation:
+Verify privileged access cannot proceed using password-only
+authentication.
+
+======================================================================
+CONTROL 04 - DATABASE LEAST PRIVILEGE
+======================================================================
+
+Risk:
+DBA privileges may provide unnecessary access to patient records.
+
+Control:
+Separate database administration from unrestricted PHI access.
+
+Requirements:
+- Role separation
+- Row-level restrictions where appropriate
+- Purpose-based access
+- Sensitive-data monitoring
+- Export controls
+
+Owner:
+Database Administration / Security
+
+Priority:
+CRITICAL
+
+Validation:
+Confirm that a standard DBA administrative session cannot retrieve
+unapproved patient datasets.
+
+======================================================================
+CONTROL 05 - DATABASE AUDIT PROTECTION
+======================================================================
+
+Risk:
+An administrator may be able to disable or alter the only audit source.
+
+Control:
+Centralize and independently protect database audit events.
+
+Requirements:
+- Immutable or tamper-resistant storage
+- Independent monitoring
+- Alert on audit configuration changes
+- Before/after configuration evidence
+- Time synchronization
+
+Owner:
+Database Security / SOC
+
+Priority:
+CRITICAL
+
+Validation:
+Generate a controlled audit-configuration change and verify an
+independent alert is produced.
+
+======================================================================
+CONTROL 06 - DLP / REMOVABLE MEDIA CONTROL
+======================================================================
+
+Risk:
+Sensitive records may be copied through removable media.
+
+Control:
+Block unauthorized removable storage and monitor approved exceptions.
+
+Owner:
+Endpoint Security / DLP
+
+Priority:
+CRITICAL
+
+Validation:
+Verify an unauthorized removable device is blocked and generates a
+security event.
+
+======================================================================
+CONTROL 07 - EXTERNAL DESTINATION CONTROL
+======================================================================
+
+Risk:
+Sensitive information may be transmitted to unapproved external
+destinations.
+
+Control:
+Enforce destination-aware DLP and network egress controls.
+
+Requirements:
+- Approved destination list
+- Data classification
+- Destination validation
+- Transfer thresholds
+- Block/alert capability
+
+Owner:
+Network Security / DLP
+
+Priority:
+CRITICAL
+
+Validation:
+Attempt a controlled transfer of synthetic PHI to a prohibited test
+destination and verify that policy blocks the transfer.
+
+======================================================================
+CONTROL 08 - HSM / KEY SEPARATION
+======================================================================
+
+Risk:
+A compromised database administrator could potentially access both
+encrypted data and its encryption keys.
+
+Control:
+Separate database administration from key administration.
+
+Requirements:
+- HSM-backed or equivalent protected keys
+- Separate administrators
+- Key-use auditing
+- Rotation
+- Dual authorization for high-risk operations
+
+Owner:
+Cloud Security / Cryptography
+
+Priority:
+HIGH
+
+Validation:
+Verify that the DBA role cannot directly administer production
+encryption keys.
+
+======================================================================
+CONTROL 09 - PRIVILEGED ADMINISTRATIVE WORKSTATION
+======================================================================
+
+Risk:
+General-purpose endpoints provide a larger attack surface for privileged
+credentials and sessions.
+
+Control:
+Use a hardened privileged access workstation.
+
+Requirements:
+- Golden image
+- Application allowlisting
+- Endpoint detection
+- USB restrictions
+- Configuration monitoring
+- Restricted browsing
+
+Owner:
+Endpoint Security
+
+Priority:
+HIGH
+
+Validation:
+Compare the administrative workstation against the approved baseline.
+
+======================================================================
+CONTROL 10 - UEBA
+======================================================================
+
+Risk:
+Single security events may appear legitimate when examined individually.
+
+Control:
+Correlate identity, endpoint, database, network, VPN, PAM, and DLP
+signals.
+
+Owner:
+SOC / Detection Engineering
+
+Priority:
+HIGH
+
+Validation:
+Generate a synthetic sequence resembling the Scenario 2 activity and
+verify that correlated detection identifies the combined risk.
+
+======================================================================
+CONTROL 11 - PRIVILEGED ACCESS ANOMALY DETECTION
+======================================================================
+
+Risk:
+Unexpected privileged sessions may indicate credential or session
+compromise.
+
+Control:
+Detect:
+- New device
+- Unusual location
+- Concurrent sessions
+- Session reuse
+- Unusual time
+- Unexpected database access
+
+Owner:
+SOC / IAM
+
+Priority:
+HIGH
+
+Validation:
+Replay synthetic identity events and confirm an investigation alert.
+
+======================================================================
+CONTROL 12 - INSIDER THREAT GOVERNANCE
+======================================================================
+
+Risk:
+Insider-threat investigations can create privacy, legal, employment,
+and evidentiary risks if poorly governed.
+
+Control:
+Establish a formal insider-threat program.
+
+Requirements:
+- Defined authority
+- Legal/HR/privacy oversight
+- Evidence procedures
+- Human review
+- Documented escalation
+- Data minimization
+- Investigation criteria
+
+Owner:
+Security / Privacy / Legal / HR
+
+Priority:
+HIGH
+
+Validation:
+Review a simulated insider-threat case and verify that escalation and
+evidence procedures are followed.
+
+======================================================================
+CONTROL 13 - PATIENT SAFETY MONITORING
+======================================================================
+
+Risk:
+A cyber incident affecting healthcare systems may have consequences
+beyond confidentiality.
+
+Control:
+Add patient-safety assessment to cyber incident response.
+
+Evaluate:
+- Patient-record modification
+- Clinical-system availability
+- Medication/clinical workflow impact
+- Integrity of clinical information
+- Potential patient harm
+
+Owner:
+Clinical Safety / Security / Incident Response
+
+Priority:
+CRITICAL
+
+Validation:
+Conduct a tabletop exercise involving simulated clinical-system
+impact.
+
+======================================================================
+CONTROL 14 - CONTINUOUS PRIVILEGED ACCESS REVIEW
+======================================================================
+
+Risk:
+Privileges can remain after job responsibilities change.
+
+Control:
+Conduct periodic privileged-access certification.
+
+Review:
+- Current role
+- Required systems
+- Current privileges
+- Dormant accounts
+- Separation-of-duties conflicts
+- Emergency access history
+
+Owner:
+IAM / Management
+
+Priority:
+HIGH
+
+Validation:
+Verify that unnecessary privileged access is removed after a role
+change.
+
+======================================================================
+IMPLEMENTATION ORDER
+
+1. Protect active privileged sessions.
+2. Implement JIT/PAM.
+3. Require phishing-resistant MFA.
+4. Protect database audit infrastructure.
+5. Restrict PHI access.
+6. Deploy DLP and egress controls.
+7. Separate encryption-key administration.
+8. Harden privileged workstations.
+9. Deploy UEBA correlation.
+10. Establish formal insider-threat governance.
+11. Integrate patient-safety assessment.
+12. Perform continuous access certification.
+
+======================================================================
+SUCCESS CRITERIA
+======================================================================
+
+The redesigned environment should demonstrate:
+
+- No unnecessary standing privileged access.
+- Strong authentication for privileged identities.
+- Complete privileged-session attribution.
+- Protected audit logging.
+- Restricted PHI visibility.
+- Controlled removable media.
+- Controlled external destinations.
+- Separated encryption-key administration.
+- Hardened administrator workstations.
+- Continuous behavioral monitoring.
+- Formal insider-threat governance.
+- Explicit patient-safety assessment.
+
+This matrix is an architectural planning document and does not authorize
+changes to a production healthcare environment.

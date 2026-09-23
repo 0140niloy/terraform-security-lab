@@ -1,0 +1,87 @@
+SCENARIO 2 - PHASE 3
+HSM-BACKED ENCRYPTION AND KEY MANAGEMENT SEPARATION
+
+STATUS: SIMULATION / DEFENSIVE DESIGN
+
+OBJECTIVE
+Prevent database administrators from independently accessing both protected
+patient data and the cryptographic keys required to decrypt it.
+
+1. KEY SEPARATION
+
+Separate responsibilities for:
+- Database administration
+- Application administration
+- Encryption-key administration
+- Security operations
+- Cloud administration
+
+A DBA should not automatically have access to encryption keys.
+
+2. HSM / MANAGED KEY SERVICE
+
+Sensitive encryption keys should be protected by an approved HSM-backed
+or equivalent managed key service.
+
+Controls should include:
+- Hardware-backed key protection where required
+- Strict IAM policy
+- Key usage logging
+- Key rotation
+- Dual authorization for high-risk key operations
+- Separation of key administrators from database administrators
+
+3. DATA ENCRYPTION
+
+Protect PHI:
+- At rest
+- In transit
+- In backups
+- In replicated environments
+- In approved export locations
+
+4. KEY USAGE MONITORING
+
+Alert on:
+- Unexpected decrypt operations
+- Large volumes of cryptographic operations
+- Key access outside approved applications
+- Key access by DBA identities
+- Access from unexpected devices
+- Access outside approved maintenance windows
+
+5. BACKUP KEY SEPARATION
+
+Backup encryption keys must be separately controlled from production
+database administration.
+
+Compromise of a DBA account must not automatically provide access to
+backup encryption keys.
+
+6. KEY LIFECYCLE
+
+Document:
+- Key creation
+- Activation
+- Rotation
+- Suspension
+- Revocation
+- Destruction
+- Recovery procedures
+
+7. INCIDENT RESPONSE
+
+If a privileged identity is suspected of compromise:
+- Review key access logs.
+- Identify affected keys.
+- Determine whether decrypt operations occurred.
+- Restrict suspicious access.
+- Preserve key-management evidence.
+- Rotate/revoke keys according to incident-response policy.
+
+DESIGN PRINCIPLE
+
+No single privileged identity should independently control the database,
+patient data, and cryptographic keys.
+
+This document is a defensive architecture specification.

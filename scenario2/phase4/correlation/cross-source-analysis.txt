@@ -1,0 +1,195 @@
+SCENARIO 2 - PHASE 4
+CROSS-SOURCE FORENSIC CORRELATION
+
+STATUS: SIMULATION / DEFENSIVE ANALYSIS
+
+OBJECTIVE
+
+Correlate independent evidence sources to determine whether the observed
+activity represents malicious insider behavior, account compromise,
+endpoint compromise, or an operational anomaly.
+
+1. IDENTITY CORRELATION
+
+Sources:
+- Okta
+- MFA
+- VPN
+- PAM
+- Endpoint identity
+
+Questions:
+- Was the same identity used?
+- Which device authenticated?
+- Was MFA actually performed?
+- Was an existing session reused?
+- Were multiple sessions active simultaneously?
+
+2. ENDPOINT CORRELATION
+
+Sources:
+- EDR
+- Process tree
+- Memory
+- Disk image
+- Persistence locations
+
+Questions:
+- Did the authorized DBA workstation initiate the activity?
+- Was an unknown process involved?
+- Was credential theft detected?
+- Was persistence established?
+- Was the endpoint modified?
+
+3. DATABASE CORRELATION
+
+Sources:
+- Database audit
+- Transaction logs
+- Query logs
+- Export records
+- Database staging locations
+
+Questions:
+- Which patient records were queried?
+- How many unique patients were involved?
+- Which fields were accessed?
+- Was data exported?
+- Was data modified or deleted?
+- Did audit logging stop temporarily?
+
+4. NETWORK CORRELATION
+
+Sources:
+- VPN
+- Proxy
+- Firewall
+- Network flow
+- DNS
+- SFTP gateway
+
+Questions:
+- Which source initiated the connection?
+- What destination was contacted?
+- How many bytes were transferred?
+- Was the connection blocked?
+- Did another transfer channel succeed?
+
+5. DLP CORRELATION
+
+Correlate:
+- USB connection
+- Data classification
+- Transfer volume
+- User
+- Endpoint
+- Block/allow decision
+
+A blocked DLP event demonstrates a policy enforcement event. It does
+not by itself prove that the data left the organization.
+
+6. HR-SYSTEM CORRELATION
+
+Review only where authorized.
+
+Determine:
+- Whether access was within the administrator's role.
+- Whether an approved business reason existed.
+- Whether the access was successful.
+- Whether sensitive personnel data was retrieved.
+
+7. CHANGE-MANAGEMENT CORRELATION
+
+Compare security-sensitive actions against:
+- Approved change tickets
+- Maintenance windows
+- Emergency changes
+- Database administration tasks
+
+An unexplained change should remain an investigation finding rather
+than automatically being classified as malicious.
+
+8. TRAVEL / CALENDAR CORRELATION
+
+Where legally authorized, compare:
+- Corporate travel records
+- Work schedules
+- Approved remote-work arrangements
+- Calendar events
+- VPN activity
+
+Physical location evidence must be interpreted carefully because VPNs,
+proxies, mobile networks, and cloud egress points can distort apparent
+geolocation.
+
+9. FINANCIAL / PERSONAL INFORMATION
+
+Any review of personal financial or private information requires
+appropriate legal, HR, privacy, or investigative authority.
+
+Such information must not be used as standalone proof of malicious
+intent.
+
+10. CORRELATION TABLE
+
+Event:
+Privileged login
+
+Correlate:
+Okta + MFA + device + VPN + PAM
+
+Event:
+Sensitive database access
+
+Correlate:
+DB audit + PAM + EDR + identity
+
+Event:
+Audit logging change
+
+Correlate:
+DB audit + change management + PAM
+
+Event:
+Large data transfer
+
+Correlate:
+DB export + DLP + EDR + network flow
+
+Event:
+External destination
+
+Correlate:
+Proxy + firewall + network flow + DLP
+
+Event:
+HR access
+
+Correlate:
+HR logs + identity + workstation + business authorization
+
+11. TIME NORMALIZATION
+
+All timestamps must be normalized to a common reference.
+
+Record:
+- Original timestamp
+- Original timezone
+- Normalized UTC timestamp
+- Source
+- Clock synchronization status
+
+12. CORRELATION RESULT
+
+The goal is not to maximize the number of suspicious indicators.
+
+The goal is to determine whether independent sources corroborate the
+same activity and whether competing explanations remain viable.
+
+Final classifications:
+- Corroborated
+- Partially corroborated
+- Contradicted
+- Unresolved
+
+This document is a defensive forensic-analysis plan.

@@ -1,0 +1,220 @@
+SCENARIO 2 - PHASE 4
+FORENSIC EXPERT WITNESS REPORT
+
+STATUS: SIMULATION / DEFENSIVE FORENSIC TEMPLATE
+
+PURPOSE
+
+Provide a structured format for presenting forensic findings to legal,
+regulatory, executive, or other authorized reviewers.
+
+1. EXECUTIVE SUMMARY
+
+Summarize:
+- Incident discovery
+- Systems affected
+- Evidence reviewed
+- Principal findings
+- Data-scope determination
+- Patient-safety assessment
+- Current attribution assessment
+- Remaining investigative gaps
+
+The summary must distinguish confirmed facts from investigative
+inferences.
+
+2. SCOPE
+
+Systems:
+- Okta
+- VPN/proxy
+- PAM
+- DBA workstation
+- Production databases
+- Database audit systems
+- DLP/EDR
+- Network infrastructure
+- Relevant cloud services
+- HR systems where legally authorized
+
+3. EVIDENCE
+
+Identify each evidence item using a unique identifier.
+
+For every item document:
+- Source
+- Acquisition date/time
+- Collector
+- Acquisition method
+- Hash
+- Storage location
+- Chain of custody
+- Analysis performed
+
+4. FORENSIC TIMELINE
+
+Normalize timestamps to UTC and document original time zones.
+
+Include:
+- Authentication
+- MFA
+- VPN
+- Database access
+- Audit configuration changes
+- Data staging/export
+- DLP activity
+- Network connections
+- HR access
+- Containment actions
+
+5. TECHNICAL ANALYSIS
+
+Analyze:
+
+IDENTITY
+- Authentication
+- MFA
+- Session reuse
+- Device identity
+- Privileged access
+
+ENDPOINT
+- Process execution
+- Persistence
+- Memory
+- Disk artifacts
+- Credential artifacts
+- Malware indicators
+
+DATABASE
+- Queries
+- Records accessed
+- Export operations
+- Audit gaps
+- Modification/deletion
+- Transaction logs
+
+NETWORK
+- Connections
+- Destinations
+- Data volumes
+- Blocked transfers
+- Successful transfers
+
+6. HYPOTHESIS ANALYSIS
+
+Evaluate:
+
+H1 - Malicious insider
+H2 - Compromised account
+H3 - Compromised workstation
+H4 - Operational anomaly
+
+For each hypothesis document:
+- Supporting evidence
+- Contradicting evidence
+- Missing evidence
+- Current status
+
+7. DATA IMPACT
+
+Determine:
+- Unique affected patients
+- Records accessed
+- PHI categories
+- Data exported
+- Data transmitted
+- Data blocked
+- Data modified
+- Data deleted
+
+Do not equate database row counts with unique patient counts without
+deduplication and record-level analysis.
+
+8. PATIENT SAFETY
+
+Assess separately:
+- Confidentiality
+- Integrity
+- Availability
+- Clinical workflow impact
+- Potential patient harm
+
+9. ATTRIBUTION
+
+Possible findings:
+- Authorized activity
+- Compromised identity
+- Compromised endpoint
+- External actor
+- Insider misuse
+- Unresolved
+
+Attribution must be based on corroborated evidence.
+
+10. LIMITATIONS
+
+Document:
+- Missing logs
+- Disabled audit periods
+- Retention limitations
+- Incomplete endpoint telemetry
+- Session reuse
+- Encrypted evidence
+- Synthetic evidence
+- Other investigative constraints
+
+11. EXPERT METHODOLOGY
+
+The expert should be prepared to explain:
+- Evidence preservation
+- Hash verification
+- Timeline methodology
+- Correlation methodology
+- Alternative hypotheses
+- False-positive considerations
+- Data-scope methodology
+- Attribution limitations
+
+12. CROSS-EXAMINATION QUESTIONS
+
+Potential questions include:
+
+- How was the evidence acquired?
+- Was the original evidence preserved?
+- How were timestamps normalized?
+- Could the account have been compromised?
+- Could session reuse explain the activity?
+- Could the endpoint have been compromised?
+- Was the transfer actually successful?
+- How were unique patients counted?
+- What evidence proves data deletion?
+- What evidence proves intent?
+- What evidence supports attribution?
+- What evidence remains unavailable?
+
+13. OPINION FORMAT
+
+Use four categories:
+
+FACT
+Directly demonstrated by evidence.
+
+INFERENCE
+Reasonable interpretation supported by multiple evidence sources.
+
+ALTERNATIVE
+A competing explanation that remains technically plausible.
+
+UNRESOLVED
+Insufficient evidence to reach a reliable conclusion.
+
+14. FINAL CONCLUSION
+
+The final opinion must be limited to the evidence available.
+
+Do not state that a specific person intentionally stole data, that a
+specific external actor was responsible, or that successful exfiltration
+occurred unless the evidence independently supports that conclusion.
+
+This report is a simulated forensic template and is not legal advice.

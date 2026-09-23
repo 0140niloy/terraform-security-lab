@@ -1,0 +1,96 @@
+SCENARIO 2 - PHASE 3
+DATABASE ACCESS GOVERNANCE AND ROW-LEVEL SECURITY
+
+STATUS: SIMULATION / DEFENSIVE DESIGN
+
+OBJECTIVE
+Ensure that database administrators can maintain database infrastructure
+without automatically receiving unrestricted visibility into patient data.
+
+1. SEPARATION OF ADMINISTRATION AND DATA ACCESS
+
+Separate:
+- Database platform administration
+- Patient-data access
+- Security administration
+- Key management
+- Application administration
+
+A DBA should not automatically receive unrestricted access to PHI.
+
+2. ROW-LEVEL SECURITY
+
+Where technically appropriate, implement database access controls that
+limit which records privileged personnel can view.
+
+Controls should consider:
+- Role
+- Business purpose
+- Approved ticket
+- Application context
+- Dataset sensitivity
+- Emergency-access status
+
+3. PRIVILEGED DATA ACCESS
+
+Sensitive patient data access should generate detailed audit records.
+
+Record:
+- Identity
+- Target database
+- Table/schema
+- Query type
+- Timestamp
+- Application/session
+- Number of records affected
+- Export activity
+- Approval reference
+
+4. SERVICE ACCOUNTS
+
+Service accounts should:
+- Have only required permissions.
+- Be unique to applications/services.
+- Avoid interactive administrator login.
+- Use managed credential rotation.
+- Be monitored for unusual behavior.
+
+5. BULK DATA OPERATIONS
+
+Large SELECT/export operations should trigger additional controls.
+
+Examples:
+- Threshold alerts
+- Approval requirement
+- DLP inspection
+- Session recording
+- Export destination validation
+- Automatic blocking when policy conditions are violated
+
+6. AUDIT LOGGING
+
+Audit logs must be:
+- Centralized
+- Tamper-resistant
+- Time-synchronized
+- Protected from database administrators
+- Independently monitored
+
+Administrators must not be able to silently disable the only audit source.
+
+7. AUDIT CONFIGURATION CHANGES
+
+Changes to database audit configuration require:
+- Change ticket
+- Authorization
+- Dual approval for high-risk systems
+- Before/after configuration capture
+- Immediate security alert
+- Independent logging
+
+DESIGN PRINCIPLE
+
+Database administrators should be able to administer infrastructure
+without having unrestricted, unaudited access to sensitive patient data.
+
+This document describes defensive controls only.

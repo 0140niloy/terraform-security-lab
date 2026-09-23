@@ -1,0 +1,83 @@
+SCENARIO 2 - PHASE 3
+DATA LOSS PREVENTION ARCHITECTURE
+
+STATUS: SIMULATION / DEFENSIVE DESIGN
+
+OBJECTIVE
+Prevent unauthorized movement of PHI through removable media, network
+destinations, cloud services, and other unapproved channels.
+
+1. REMOVABLE MEDIA
+
+Controls:
+- Disable unauthorized USB storage.
+- Permit only approved encrypted organizational devices.
+- Record device identity.
+- Record user identity.
+- Record file/data classification.
+- Alert on large transfers.
+- Block unauthorized transfers.
+
+2. NETWORK DESTINATIONS
+
+Outbound data controls should evaluate:
+- Destination reputation
+- Destination country/region
+- Approved destination list
+- Protocol
+- Data classification
+- Transfer size
+- User/device risk
+- Current incident status
+
+Non-approved external destinations should be blocked for protected data.
+
+3. DLP POLICY
+
+High-risk PHI movement should generate:
+- Prevent/block action
+- Security alert
+- Case/ticket
+- User/device context
+- Destination
+- Data classification
+- Transfer size
+- Timestamp
+
+4. CORRELATION
+
+DLP alerts should correlate with:
+- Okta authentication
+- PAM sessions
+- VPN
+- EDR
+- Database audit
+- Network flow
+- Change-management records
+
+5. FALSE POSITIVE MANAGEMENT
+
+Legitimate bulk transfers should use:
+- Pre-approved workflow
+- Business justification
+- Time-limited authorization
+- Approved destination
+- Enhanced monitoring
+
+6. INCIDENT RESPONSE
+
+A blocked PHI transfer should not automatically be classified as a
+successful breach.
+
+Investigators must determine:
+- Whether data actually left the environment.
+- What data was involved.
+- Whether transfer was blocked before transmission.
+- Whether another channel succeeded.
+
+DESIGN PRINCIPLE
+
+Prevent first, detect second, preserve evidence third, and investigate
+the complete data path before declaring exfiltration.
+
+This document is a defensive design specification.

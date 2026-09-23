@@ -1,0 +1,94 @@
+SCENARIO 2 — PHASE 2 FORENSIC CHAIN OF CUSTODY
+============================================================
+
+SIMULATION ONLY
+
+CASE:
+Hybrid Cloud Privileged-Account Security Investigation
+
+EVIDENCE HANDLING PRINCIPLES
+----------------------------
+
+1. Preserve original evidence without modification.
+2. Perform analysis only on forensic copies.
+3. Record every evidence transfer.
+4. Record acquisition date/time.
+5. Record investigator identity.
+6. Record evidence identifier.
+7. Record cryptographic hash where applicable.
+8. Record storage location.
+9. Record access purpose.
+10. Preserve original timestamps and metadata.
+
+EVIDENCE SOURCES
+----------------
+
+E01 — Okta authentication records
+E02 — MFA records
+E03 — EDR telemetry
+E04 — Endpoint forensic image
+E05 — Memory image
+E06 — Database audit records
+E07 — Database transaction logs
+E08 — DLP records
+E09 — VPN records
+E10 — Proxy records
+E11 — Network-flow records
+E12 — HR-system audit records
+E13 — Backup records
+E14 — Change-management records
+
+ACQUISITION REQUIREMENTS
+------------------------
+
+For each evidence item record:
+
+Evidence ID:
+Description:
+Source:
+Acquisition timestamp:
+Acquired by:
+Original location:
+Hash algorithm:
+Hash:
+Storage location:
+Write-protection method:
+Transfer history:
+Analysis copy:
+Notes:
+
+FORENSIC PRESERVATION
+---------------------
+
+Original drives:
+Preserve using appropriate forensic acquisition procedures.
+
+Memory:
+Acquire volatile memory before shutdown where operationally and legally
+appropriate.
+
+Database:
+Preserve native audit, transaction, recovery, and configuration logs.
+
+Cloud:
+Preserve relevant identity, control-plane, storage, and network logs.
+
+Screenshots:
+Preserve original files and associated metadata.
+
+LEGAL HOLD
+----------
+
+Legal counsel should determine applicable preservation obligations and
+scope of legal hold.
+
+CRIMINAL REFERRAL
+-----------------
+
+Any referral to law enforcement should be coordinated through authorized
+organizational leadership and legal counsel.
+
+No attribution to a foreign government, criminal group, competitor, or
+individual should be made without sufficient evidence.
+
+SIMULATION ONLY.

@@ -1,0 +1,152 @@
+SCENARIO 2 - PHASE 4
+LONG-TERM RECOVERY AND ENHANCED MONITORING PLAN
+
+STATUS: SIMULATION / DEFENSIVE DESIGN
+
+OBJECTIVE
+
+Establish a two-year recovery and monitoring program following a
+significant privileged-access security incident.
+
+YEAR 1 - IMMEDIATE RECOVERY
+
+0-30 DAYS
+
+- Complete forensic preservation.
+- Validate account containment.
+- Rotate affected credentials.
+- Review privileged permissions.
+- Verify audit logging.
+- Validate endpoint integrity.
+- Review database access.
+- Confirm DLP enforcement.
+- Assess patient impact.
+- Complete required legal/privacy review.
+
+30-90 DAYS
+
+- Implement JIT/PAM.
+- Enforce phishing-resistant MFA.
+- Harden privileged workstations.
+- Improve database access separation.
+- Deploy enhanced UEBA.
+- Review service accounts.
+- Validate backup security.
+- Review encryption-key separation.
+
+90-180 DAYS
+
+- Conduct privileged-access certification.
+- Perform detection engineering validation.
+- Conduct incident-response tabletop exercises.
+- Test DLP controls.
+- Review cloud identity controls.
+- Perform controlled security assessments.
+
+180-365 DAYS
+
+- Conduct independent control assessment.
+- Perform privileged-access red-team exercise.
+- Review long-term detection metrics.
+- Reassess risk and residual exposure.
+- Update incident-response procedures.
+
+YEAR 2 - SUSTAINED ASSURANCE
+
+MONTHS 12-18
+
+- Repeat privileged-access certification.
+- Review identity and PAM architecture.
+- Validate database audit protection.
+- Test backup restoration.
+- Review UEBA effectiveness.
+- Review security exceptions.
+
+MONTHS 18-24
+
+- Conduct independent security assessment.
+- Perform insider-threat tabletop exercise.
+- Test patient-safety incident response.
+- Review DLP and egress controls.
+- Review encryption-key governance.
+- Update architecture based on lessons learned.
+
+2. PATIENT SUPPORT
+
+Where legally and operationally appropriate:
+- Patient notification
+- Dedicated support channel
+- Identity-theft/credit monitoring where appropriate
+- Fraud-awareness information
+- Additional support for affected populations
+
+The specific support package should depend on the confirmed nature and
+scope of the incident.
+
+3. EXTERNAL EXPOSURE MONITORING
+
+Organizations may establish lawful monitoring for:
+- Exposed organizational credentials
+- Confirmed leaked datasets
+- Known organizational identifiers
+- Threat intelligence indicators
+- Relevant public disclosures
+
+Monitoring must not involve unauthorized access to systems or accounts.
+
+4. COMPETITOR / THREAT-ACTOR COMPARISON
+
+If stolen data or intellectual property is identified, investigators may
+compare confirmed indicators against known threat campaigns and publicly
+documented activity.
+
+Comparison should be evidence-based and should not automatically imply
+that a competitor or named threat actor was responsible.
+
+5. RED-TEAM VALIDATION
+
+Conduct controlled defensive exercises covering:
+- Privileged account compromise
+- Session theft scenarios
+- Excessive database privileges
+- USB/DLP controls
+- External egress controls
+- Audit-log protection
+- Patient-safety impact
+
+All testing must be authorized and performed against designated test
+systems.
+
+6. METRICS
+
+Track:
+- Standing privileged accounts
+- JIT adoption
+- MFA coverage
+- PAM coverage
+- Unauthorized access attempts
+- DLP blocks
+- Mean time to detect
+- Mean time to contain
+- Audit-log coverage
+- Privileged-access review completion
+- Security exceptions
+
+7. GOVERNANCE
+
+Review quarterly with:
+- Security
+- Privacy
+- Compliance
+- IT
+- Database administration
+- Clinical safety
+- HR where appropriate
+- Legal counsel where appropriate
+
+CONCLUSION
+
+Long-term monitoring should reduce recurrence risk while maintaining
+privacy, proportionality, evidence integrity, and patient safety.
+
+This is a defensive recovery and assurance plan.
