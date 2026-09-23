@@ -1,0 +1,58 @@
+{
+  "SIMULATION_ONLY": true,
+  "identity": "dba-senior-01",
+  "events": [
+    {
+      "timestamp": "2026-09-23T01:52:44Z",
+      "event": "VPN_SESSION_START",
+      "source": "simulated-public-wifi",
+      "device": "DBA-WORKSTATION-01",
+      "result": "CONNECTED"
+    },
+    {
+      "timestamp": "2026-09-23T02:03:19Z",
+      "event": "DATABASE_CONNECTION",
+      "source": "simulated-corporate-egress",
+      "destination": "PROD-PHI-DB-01",
+      "result": "ALLOWED"
+    },
+    {
+      "timestamp": "2026-09-23T02:19:41Z",
+      "event": "DLP_TRANSFER_ATTEMPT",
+      "source": "simulated-corporate-egress",
+      "destination": "SIMULATED-USB-001",
+      "result": "BLOCKED"
+    },
+    {
+      "timestamp": "2026-09-23T02:27:51Z",
+      "event": "SFTP_CONNECTION_ATTEMPT",
+      "source": "simulated-corporate-egress",
+      "destination_region": "SIMULATED-RUSSIA",
+      "result": "BLOCKED"
+    },
+    {
+      "timestamp": "2026-09-23T02:41:02Z",
+      "event": "GEOGRAPHIC_INCONSISTENCY",
+      "identity": "dba-senior-01",
+      "contexts": [
+        "simulated-public-wifi",
+        "simulated-corporate-egress",
+        "simulated-foreign-egress"
+      ],
+      "result": "ANOMALOUS"
+    }
+  ],
+  "assessment": {
+    "finding": "Multiple network contexts are associated with the same simulated identity during a short period.",
+    "limitation": "Network context changes do not independently prove account compromise, VPN manipulation, or malicious intent.",
+    "required_correlation": [
+      "VPN authentication logs",
+      "Okta session identifiers",
+      "Device identity",
+      "EDR network telemetry",
+      "Proxy logs",
+      "Network flow records",
+      "MFA events"
+    ]
+  }
+}

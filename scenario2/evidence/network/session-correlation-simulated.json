@@ -1,0 +1,42 @@
+{
+  "SIMULATION_ONLY": true,
+  "identity": "dba-senior-01",
+  "correlation_window": "2026-09-23T01:47:58Z to 2026-09-23T02:41:02Z",
+  "sessions": [
+    {
+      "timestamp": "2026-09-23T01:47:58Z",
+      "context": "simulated-public-wifi",
+      "device": "DBA-WORKSTATION-01",
+      "authentication": "MFA_SUCCESS"
+    },
+    {
+      "timestamp": "2026-09-23T01:54:32Z",
+      "context": "simulated-corporate-egress",
+      "device": "UNKNOWN-DEVICE",
+      "authentication": "SESSION_REUSE"
+    },
+    {
+      "timestamp": "2026-09-23T02:19:41Z",
+      "context": "simulated-foreign-egress",
+      "device": "UNKNOWN-DEVICE",
+      "authentication": "SESSION_REUSE"
+    }
+  ],
+  "hypotheses_supported": {
+    "H1_malicious_insider": "POSSIBLE",
+    "H2_compromised_account": "POSSIBLE",
+    "H3_compromised_workstation": "POSSIBLE",
+    "H4_operational_anomaly": "POSSIBLE"
+  },
+  "assessment": {
+    "finding": "The synthetic evidence establishes a session-correlation anomaly requiring investigation.",
+    "not_established": [
+      "Credential theft",
+      "MFA bypass",
+      "Token theft",
+      "Workstation compromise",
+      "Malicious insider intent"
+    ],
+    "priority": "HIGH"
+  }
+}

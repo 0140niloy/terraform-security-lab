@@ -1,0 +1,49 @@
+{
+  "SIMULATION_ONLY": true,
+  "device": "DBA-WORKSTATION-01",
+  "checks": {
+    "os_integrity": {
+      "status": "NO_SIMULATED_ANOMALY",
+      "unexpected_system_binary_changes": false
+    },
+    "ssh_configuration": {
+      "status": "NO_SIMULATED_ANOMALY",
+      "unexpected_authorized_keys": false
+    },
+    "certificates": {
+      "status": "REVIEW_REQUIRED",
+      "unexpected_client_certificate": "NOT_OBSERVED"
+    },
+    "credential_store": {
+      "status": "REVIEW_REQUIRED",
+      "suspicious_credential_access": "NOT_ESTABLISHED"
+    },
+    "scheduled_tasks": {
+      "status": "NO_SIMULATED_ANOMALY"
+    },
+    "services": {
+      "status": "NO_SIMULATED_ANOMALY"
+    },
+    "wmi": {
+      "status": "NO_SIMULATED_ANOMALY"
+    },
+    "browser_extensions": {
+      "status": "NO_SIMULATED_ANOMALY"
+    },
+    "proxy_configuration": {
+      "status": "NO_SIMULATED_ANOMALY"
+    }
+  },
+  "assessment": {
+    "finding": "Current synthetic endpoint evidence does not establish persistent workstation compromise.",
+    "limitation": "Absence of simulated persistence indicators does not exclude memory-only malware, credential theft, session theft, or previously removed artifacts.",
+    "next_steps": [
+      "Acquire forensic disk image",
+      "Acquire volatile memory image",
+      "Validate file-system timestamps",
+      "Review authentication artifacts",
+      "Review browser history and extensions",
+      "Correlate EDR telemetry with Okta and VPN sessions"
+    ]
+  }
+}

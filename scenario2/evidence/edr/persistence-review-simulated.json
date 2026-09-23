@@ -1,0 +1,14 @@
+{
+  "SIMULATION_ONLY": true,
+  "device": "DBA-WORKSTATION-01",
+  "checks": {
+    "scheduled_tasks": "NO_SIMULATED_ANOMALY",
+    "services": "NO_SIMULATED_ANOMALY",
+    "registry_run_keys": "NO_SIMULATED_ANOMALY",
+    "wmi_persistence": "NO_SIMULATED_ANOMALY",
+    "browser_extensions": "NO_SIMULATED_ANOMALY",
+    "vpn_configuration": "NO_SIMULATED_ANOMALY",
+    "proxy_configuration": "NO_SIMULATED_ANOMALY"
+  },
+  "assessment": "No persistence mechanism is represented in the current synthetic evidence."
+}

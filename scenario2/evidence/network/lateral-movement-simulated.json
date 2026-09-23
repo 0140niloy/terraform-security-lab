@@ -1,0 +1,43 @@
+{
+  "SIMULATION_ONLY": true,
+  "identity": "dba-senior-01",
+  "events": [
+    {
+      "timestamp": "2026-09-23T02:28:14Z",
+      "source": "DBA-WORKSTATION-01",
+      "destination": "HR-SYSTEM-01",
+      "protocol": "SIMULATED-ADMIN-PROTOCOL",
+      "result": "ALLOWED",
+      "classification": "INTERNAL"
+    },
+    {
+      "timestamp": "2026-09-23T02:30:02Z",
+      "source": "DBA-WORKSTATION-01",
+      "destination": "HR-SYSTEM-01",
+      "resource": "PERSONNEL_RECORDS",
+      "operation": "READ_ATTEMPT",
+      "result": "BLOCKED",
+      "classification": "SENSITIVE"
+    },
+    {
+      "timestamp": "2026-09-23T02:31:19Z",
+      "source": "DBA-WORKSTATION-01",
+      "destination": "HR-SYSTEM-02",
+      "resource": "EMPLOYEE_FINANCIAL_RECORDS",
+      "operation": "ACCESS_ATTEMPT",
+      "result": "BLOCKED",
+      "classification": "SENSITIVE"
+    }
+  ],
+  "assessment": {
+    "finding": "Synthetic telemetry shows movement from the DBA workstation toward HR systems.",
+    "limitation": "The events do not establish whether the activity was authorized administrative work, malicious insider behavior, or activity performed through a compromised session.",
+    "next_steps": [
+      "Validate authorization for HR access",
+      "Correlate identity and device telemetry",
+      "Review endpoint process ancestry",
+      "Review network authentication records",
+      "Preserve HR-system audit logs"
+    ]
+  }
+}

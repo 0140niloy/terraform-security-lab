@@ -1,0 +1,437 @@
+SCENARIO 2 — PHASE 1 INVESTIGATION REPORT
+============================================================
+
+SIMULATION ONLY — FORENSIC TRAINING EXERCISE
+
+Case:
+Sophisticated Hybrid Cloud Insider Threat with Compliance Complexity
+
+Environment:
+Healthcare organization
+Hybrid cloud: on-premises HIPAA-controlled datacenter + AWS GovCloud + Okta SaaS
+
+Subject:
+dba-senior-01
+
+Endpoint:
+DBA-WORKSTATION-01
+
+Assessment Date:
+2026-09-23
+
+
+1. EXECUTIVE SUMMARY
+------------------------------------------------------------
+
+A concentrated sequence of anomalous privileged-account activity was
+identified involving a senior database administrator identity.
+
+The synthetic evidence represents:
+
+- successful Okta authentication with MFA;
+- subsequent session reuse from different network contexts;
+- production PHI database access;
+- sensitive database audit-configuration modification;
+- bulk PHI query/export activity;
+- a simulated 500 GiB removable-media transfer attempt;
+- an attempted transfer to a non-approved external SFTP destination;
+- attempted access to HR personnel and employee financial records;
+- geographic/session inconsistency.
+
+The simulated DLP and external network controls blocked the represented
+transfer attempts.
+
+Current synthetic endpoint analysis does not establish malware,
+persistent compromise, credential dumping, keylogging, screen capture,
+unauthorized SSH keys, or unauthorized client certificates.
+
+The incident therefore remains unresolved between four hypotheses:
+
+H1 — malicious insider
+H2 — compromised account
+H3 — compromised workstation
+H4 — operational anomaly
+
+No hypothesis should be treated as confirmed based solely on the current
+synthetic evidence.
+
+
+2. INCIDENT SEVERITY
+------------------------------------------------------------
+
+Severity:
+HIGH
+
+Reasoning:
+
+The activity involves a privileged identity and simulated access to
+highly sensitive healthcare information.
+
+The combination of database audit changes, bulk data activity,
+removable-media activity, external-transfer attempts, and attempted
+access to HR systems requires immediate forensic correlation in a real
+incident.
+
+Important limitation:
+
+This exercise contains synthetic evidence only. No real patient records,
+credentials, network addresses, malware, or external systems are involved.
+
+
+3. KEY EVIDENCE
+------------------------------------------------------------
+
+E01 — Okta authentication evidence
+File:
+scenario2/evidence/okta/authentication-simulated.json
+
+Observation:
+Initial MFA authentication succeeded from the simulated public-WiFi
+context. Later authentication contexts used simulated SESSION_REUSE.
+
+Interpretation:
+Requires investigation of session lifetime, device identity, token
+handling, and session history.
+
+Not established:
+Credential theft or MFA bypass.
+
+
+E02 — MFA evidence
+File:
+scenario2/evidence/okta/mfa-events-simulated.json
+
+Observation:
+MFA was observed during the initial authentication. Later session reuse
+events did not contain new MFA challenges.
+
+Interpretation:
+Consistent with session reuse but does not independently prove session
+theft or MFA bypass.
+
+
+E03 — Database audit evidence
+File:
+scenario2/evidence/database/db-audit-simulated.json
+
+Observation:
+Sensitive PHI schema access, audit configuration modification, bulk
+query, and export activity are represented.
+
+Interpretation:
+High-priority database activity requiring independent correlation.
+
+
+E04 — Database audit gap
+File:
+scenario2/evidence/database/audit-gap-simulated.json
+
+Observation:
+A simulated audit gap overlaps with sensitive database activity.
+
+Interpretation:
+Potentially significant because database-native telemetry is incomplete
+during part of the activity.
+
+Not established:
+Intentional suppression of evidence.
+
+
+E05 — EDR process chain
+File:
+scenario2/evidence/edr/process-tree-simulated.json
+
+Observation:
+Synthetic process chain represents database administration, export,
+archive creation, and removable-media copy activity.
+
+Interpretation:
+Consistent with data staging behavior.
+
+Limitation:
+The process names and command lines are simulated and do not establish
+actual execution.
+
+
+E06 — DLP event
+File:
+scenario2/evidence/dlp/usb-transfer-simulated.json
+
+Observation:
+A simulated 500 GiB PHI transfer to removable media was blocked.
+
+Interpretation:
+Indicates a high-severity attempted data movement event.
+
+Important distinction:
+A blocked transfer does not establish successful data exfiltration.
+
+
+E07 — External SFTP attempt
+File:
+scenario2/evidence/network/vpn-proxy-simulated.json
+
+Observation:
+An attempted connection to a simulated non-approved external SFTP
+destination was blocked.
+
+Interpretation:
+Requires investigation of authorization, destination controls,
+network telemetry, and session ownership.
+
+Not established:
+Successful external transfer.
+
+
+E08 — HR lateral movement
+File:
+scenario2/evidence/network/lateral-movement-simulated.json
+
+Observation:
+Attempts were made toward HR systems and sensitive personnel records.
+
+Interpretation:
+Represents lateral-access activity outside the core DBA database role.
+
+Not established:
+Successful access or data acquisition.
+
+
+E09 — Endpoint integrity
+File:
+scenario2/evidence/edr/endpoint-integrity-simulated.json
+
+Observation:
+No simulated persistence, unauthorized SSH key, unexpected client
+certificate, or browser-extension anomaly was identified.
+
+Interpretation:
+No persistent endpoint compromise is currently established.
+
+
+E10 — Memory analysis
+File:
+scenario2/evidence/edr/memory-analysis-simulated.json
+
+Observation:
+No simulated keylogger, screen-capture, credential-dumping, or
+process-injection indicator was identified.
+
+Interpretation:
+Current evidence does not establish memory-resident malware.
+
+
+4. HYPOTHESIS ASSESSMENT
+------------------------------------------------------------
+
+H1 — MALICIOUS INSIDER
+
+Evidence supporting consideration:
+
+- privileged DBA identity associated with sensitive activity;
+- PHI access;
+- audit configuration modification;
+- data staging/export behavior;
+- attempted external transfer;
+- attempted HR access.
+
+Evidence limitations:
+
+- account ownership does not establish human control;
+- session reuse provides an alternative explanation;
+- no independent evidence of motive or intent exists.
+
+Status:
+POSSIBLE — NOT CONFIRMED.
+
+
+H2 — COMPROMISED ACCOUNT
+
+Evidence supporting consideration:
+
+- multiple network contexts;
+- UNKNOWN-DEVICE session;
+- SESSION_REUSE events;
+- later sessions without new simulated MFA challenges.
+
+Evidence limitations:
+
+- session reuse may have legitimate technical explanations;
+- no credential-theft artifact is currently established.
+
+Status:
+POSSIBLE — REQUIRES CORRELATION.
+
+
+H3 — COMPROMISED WORKSTATION
+
+Evidence supporting consideration:
+
+- suspicious synthetic process sequence;
+- network and database activity associated with the workstation;
+- memory analysis contains a review-required network-socket item.
+
+Evidence limitations:
+
+- no simulated persistence;
+- no simulated malware capability;
+- no simulated browser or proxy tampering.
+
+Status:
+POSSIBLE — CURRENT EVIDENCE INSUFFICIENT.
+
+
+H4 — OPERATIONAL ANOMALY
+
+Evidence supporting consideration:
+
+- DBA role can legitimately perform high-volume administrative activity;
+- network/session changes can have benign technical explanations.
+
+Evidence limitations:
+
+- combined sensitive-data activity and attempted transfers require
+  documented authorization and change-management validation.
+
+Status:
+POSSIBLE — REQUIRES AUTHORIZATION REVIEW.
+
+
+5. ATTACK / ACTIVITY PATTERN
+------------------------------------------------------------
+
+The synthetic sequence can be reconstructed as:
+
+Authentication
+    |
+    v
+Session establishment
+    |
+    v
+Production PHI database access
+    |
+    v
+Audit configuration change
+    |
+    v
+Bulk data query/export
+    |
+    v
+Data staging
+    |
+    +------> Removable-media transfer attempt -- BLOCKED
+    |
+    +------> External SFTP attempt ---------- BLOCKED
+    |
+    v
+HR-system access attempts ------------------ BLOCKED
+
+
+The sequence is consistent with a potentially coordinated security event,
+but intent and actor identity remain unresolved.
+
+
+6. PATIENT-SAFETY CONSIDERATION
+------------------------------------------------------------
+
+In a real healthcare incident, patient safety must be considered
+separately from confidentiality.
+
+The synthetic evidence does not establish patient harm.
+
+A real investigation should determine whether the affected DBA account
+could modify clinical systems, medication systems, clinical workflows,
+device configurations, or other systems whose compromise could affect
+patient care.
+
+Any patient-safety impact should be escalated through the organization's
+incident-management and clinical-safety procedures.
+
+
+7. IMMEDIATE FORENSIC PRIORITIES
+------------------------------------------------------------
+
+Priority 1:
+Preserve all available telemetry before retention periods expire.
+
+Priority 2:
+Correlate Okta session identifiers with VPN, EDR, and database sessions.
+
+Priority 3:
+Determine whether the UNKNOWN-DEVICE contexts can be associated with
+the legitimate workstation or another endpoint.
+
+Priority 4:
+Preserve database configuration and privileged-command history.
+
+Priority 5:
+Validate whether any data-transfer attempt actually crossed a security
+boundary.
+
+Priority 6:
+Preserve immutable copies of network, DLP, EDR, Okta, and database logs.
+
+Priority 7:
+Review authorization/change-management records for the database audit
+configuration change.
+
+Priority 8:
+Determine whether the DBA account or workstation requires containment
+under the organization's incident-response procedures.
+
+
+8. EVIDENCE GAPS
+------------------------------------------------------------
+
+The current synthetic evidence does not include:
+
+- raw Okta session identifiers;
+- real VPN authentication records;
+- endpoint disk image;
+- raw memory image;
+- database-native immutable audit logs;
+- complete proxy logs;
+- complete network packet/flow telemetry;
+- SFTP server-side evidence;
+- HR-system audit records;
+- cloud control-plane logs;
+- approved change-management tickets;
+- verified executable hashes;
+- real certificate issuance history.
+
+These gaps prevent definitive attribution.
+
+
+9. CONCLUSION
+------------------------------------------------------------
+
+The synthetic evidence represents a HIGH-SEVERITY unresolved privileged
+account security incident.
+
+The strongest documented observations concern:
+
+1. privileged PHI access;
+2. audit-configuration changes;
+3. bulk data activity;
+4. attempted removable-media transfer;
+5. attempted external transfer;
+6. attempted lateral access;
+7. session/geographic inconsistency.
+
+The evidence does not currently establish:
+
+- malicious insider intent;
+- compromised credentials;
+- MFA bypass;
+- workstation malware;
+- successful PHI exfiltration;
+- successful external transfer;
+- patient harm;
+- external actor attribution.
+
+The investigation should therefore remain hypothesis-driven and evidence-
+based until independent telemetry sources are correlated.
+
+END OF REPORT
+
+SIMULATION ONLY.

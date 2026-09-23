@@ -1,0 +1,25 @@
+{
+  "SIMULATION_ONLY": true,
+  "device": "DBA-WORKSTATION-01",
+  "events": [
+    {
+      "timestamp": "2026-09-23T02:19:36Z",
+      "event": "USB_DEVICE_CONNECTED",
+      "device_id": "SIMULATED-USB-001",
+      "user": "dba-senior-01"
+    },
+    {
+      "timestamp": "2026-09-23T02:19:41Z",
+      "event": "LARGE_DATA_COPY",
+      "source": "SIMULATED-PHI-DATASET",
+      "destination": "SIMULATED-USB-001",
+      "bytes": 536870912000,
+      "classification": "PHI",
+      "dlp_action": "BLOCKED"
+    }
+  ],
+  "assessment": {
+    "finding": "A simulated 500 GiB PHI transfer to removable media was blocked by DLP.",
+    "important_distinction": "A blocked transfer does not establish that the data left the organization."
+  }
+}

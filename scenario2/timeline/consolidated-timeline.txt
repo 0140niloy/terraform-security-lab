@@ -1,0 +1,94 @@
+SCENARIO 2 — CONSOLIDATED FORENSIC TIMELINE
+============================================
+
+SIMULATION ONLY
+
+2026-09-23 01:47:58Z
+Okta authentication
+Identity: dba-senior-01
+Network: simulated-public-wifi
+Device: DBA-WORKSTATION-01
+MFA: SUCCESS
+
+2026-09-23 01:48:11Z
+Okta session created.
+
+2026-09-23 01:52:44Z
+VPN session established from simulated-public-wifi.
+
+2026-09-23 01:54:32Z
+Authentication context:
+Network: simulated-corporate-egress
+Device: UNKNOWN-DEVICE
+MFA: SESSION_REUSE
+
+2026-09-23 02:03:19Z
+Production PHI database connection.
+
+2026-09-23 02:07:54Z
+Sensitive PATIENT_RECORDS schema accessed.
+
+2026-09-23 02:08:41Z
+Synthetic EDR process tree:
+dbadmin-client.exe -> export-tool.exe
+
+2026-09-23 02:11:07Z
+Sensitive database audit configuration changed.
+Synthetic ALTER SESSION.
+HIGH severity.
+
+2026-09-23 02:12:22Z
+Bulk PHI query represented.
+125,000 simulated rows.
+
+2026-09-23 02:16:48Z
+Synthetic database export operation.
+
+2026-09-23 02:17:52Z
+Synthetic archive creation.
+
+2026-09-23 02:18:36Z
+Synthetic removable-media copy initiated.
+
+2026-09-23 02:19:36Z
+USB device connected.
+
+2026-09-23 02:19:41Z
+500 GiB PHI transfer attempt.
+DLP: BLOCKED.
+
+2026-09-23 02:19:41Z
+Authentication context:
+Network: simulated-foreign-egress
+Device: UNKNOWN-DEVICE
+MFA: SESSION_REUSE
+
+2026-09-23 02:27:51Z
+SFTP transfer attempt toward simulated Russian destination.
+Result: BLOCKED.
+
+2026-09-23 02:28:14Z
+Connection toward HR-SYSTEM-01.
+
+2026-09-23 02:30:02Z
+Personnel-record access attempt.
+Result: BLOCKED.
+
+2026-09-23 02:31:19Z
+Employee financial-record access attempt.
+Result: BLOCKED.
+
+2026-09-23 02:41:02Z
+Okta geographic/session inconsistency detected.
+
+OVERALL TIMELINE ASSESSMENT
+---------------------------
+
+The sequence represents a concentrated period of privileged-account,
+sensitive-data, audit-configuration, removable-media, external-transfer,
+and lateral-access anomalies.
+
+The timeline does not independently establish who controlled the account
+or whether any real data was successfully exfiltrated.
+
+SIMULATION ONLY.

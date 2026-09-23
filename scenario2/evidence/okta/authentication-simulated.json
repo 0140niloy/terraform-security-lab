@@ -1,0 +1,48 @@
+{
+  "SIMULATION_ONLY": true,
+  "identity": "dba-senior-01",
+  "events": [
+    {
+      "timestamp": "2026-09-23T01:47:58Z",
+      "event": "authentication",
+      "source_network": "simulated-public-wifi",
+      "device": "DBA-WORKSTATION-01",
+      "result": "SUCCESS",
+      "mfa": "SUCCESS"
+    },
+    {
+      "timestamp": "2026-09-23T01:48:11Z",
+      "event": "session_created",
+      "source_network": "simulated-public-wifi",
+      "device": "DBA-WORKSTATION-01"
+    },
+    {
+      "timestamp": "2026-09-23T01:54:32Z",
+      "event": "authentication",
+      "source_network": "simulated-corporate-egress",
+      "device": "UNKNOWN-DEVICE",
+      "result": "SUCCESS",
+      "mfa": "SESSION_REUSE"
+    },
+    {
+      "timestamp": "2026-09-23T02:19:41Z",
+      "event": "authentication",
+      "source_network": "simulated-foreign-egress",
+      "device": "UNKNOWN-DEVICE",
+      "result": "SUCCESS",
+      "mfa": "SESSION_REUSE"
+    }
+  ],
+  "assessment": {
+    "finding": "Multiple authentication contexts require investigation.",
+    "important_limitation": "Session reuse does not by itself prove credential theft or MFA bypass.",
+    "required_correlation": [
+      "Okta session records",
+      "MFA factor events",
+      "device identity",
+      "VPN logs",
+      "EDR telemetry",
+      "network flow logs"
+    ]
+  }
+}

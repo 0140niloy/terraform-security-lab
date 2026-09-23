@@ -1,0 +1,29 @@
+{
+  "SIMULATION_ONLY": true,
+  "device": "DBA-WORKSTATION-01",
+  "memory_acquisition": {
+    "status": "SIMULATED_ACQUISITION",
+    "timestamp": "2026-09-23T03:15:00Z",
+    "integrity": "SIMULATED_HASH_RECORDED"
+  },
+  "analysis": {
+    "suspicious_process_injection": "NOT_OBSERVED",
+    "credential_dumping_indicator": "NOT_OBSERVED",
+    "unknown_remote_access_tool": "NOT_OBSERVED",
+    "keylogger_indicator": "NOT_OBSERVED",
+    "screen_capture_indicator": "NOT_OBSERVED",
+    "clipboard_monitor_indicator": "NOT_OBSERVED",
+    "network_socket_anomaly": "REVIEW_REQUIRED"
+  },
+  "assessment": {
+    "finding": "No specific malware capability is established by the current synthetic memory analysis.",
+    "limitation": "A negative simulated result does not prove that the workstation was never compromised.",
+    "next_steps": [
+      "Preserve original memory image",
+      "Validate acquisition hash",
+      "Compare loaded modules against approved software inventory",
+      "Correlate suspicious sockets with EDR and network flow",
+      "Review memory-resident authentication artifacts"
+    ]
+  }
+}

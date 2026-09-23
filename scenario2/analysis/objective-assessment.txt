@@ -1,0 +1,147 @@
+SCENARIO 2 — OBJECTIVE AND THREAT-ACTOR ASSESSMENT
+===================================================
+
+SIMULATION ONLY — NO REAL INCIDENT
+
+Assessment date:
+2026-09-23
+
+Scope:
+Determine whether the synthetic evidence is more consistent with:
+H1 - malicious insider
+H2 - compromised account
+H3 - compromised DBA workstation
+H4 - operational anomaly
+
+OBSERVED BEHAVIOR
+-----------------
+
+1. Successful authentication by dba-senior-01 using MFA.
+2. Subsequent session reuse from different simulated network contexts.
+3. Production database access involving PHI.
+4. Simulated sensitive-schema audit configuration change.
+5. Simulated bulk database query/export activity.
+6. Simulated 500 GiB removable-media transfer attempt.
+7. DLP blocked the simulated removable-media transfer.
+8. Simulated external SFTP transfer attempt was blocked.
+9. Simulated access attempts toward HR personnel systems.
+10. No simulated persistence mechanism was identified.
+11. No simulated malware, keylogger, screen-capture, or credential-dumping
+    indicator was identified.
+12. No simulated unauthorized SSH key or client certificate was identified.
+
+HYPOTHESIS ANALYSIS
+-------------------
+
+H1 — MALICIOUS INSIDER
+
+Supporting observations:
+- Activity is associated with a privileged DBA identity.
+- Sensitive PHI was accessed.
+- Audit configuration was changed.
+- Data staging/export behavior is represented.
+- HR records were also targeted.
+
+Counter-considerations:
+- Identity association alone does not prove that the human account owner
+  performed the activity.
+- Session reuse creates an alternative explanation.
+- No independent evidence of insider motive has been established.
+
+Assessment:
+POSSIBLE — NOT CONFIRMED.
+
+
+H2 — COMPROMISED ACCOUNT
+
+Supporting observations:
+- Multiple session contexts occurred within a short period.
+- Later authentication events used simulated SESSION_REUSE.
+- MFA was not observed for the later session contexts.
+- Device identity changed to UNKNOWN-DEVICE.
+
+Counter-considerations:
+- Session reuse can occur legitimately depending on session architecture.
+- No credential theft artifact has been identified.
+
+Assessment:
+POSSIBLE — REQUIRES CORRELATION.
+
+
+H3 — COMPROMISED DBA WORKSTATION
+
+Supporting observations:
+- Suspicious database/export process sequence is represented.
+- Network and database activity originated from the simulated workstation.
+- Memory analysis still contains a REVIEW_REQUIRED network-socket item.
+
+Counter-considerations:
+- No simulated persistence was found.
+- No simulated malware capability was identified.
+- No simulated unauthorized browser extension or proxy modification
+  was identified.
+
+Assessment:
+POSSIBLE — CURRENT EVIDENCE INSUFFICIENT.
+
+
+H4 — OPERATIONAL ANOMALY
+
+Supporting observations:
+- DBA is a privileged administrator.
+- Administrative database activity can generate large legitimate
+  operations.
+- Network/session transitions may have benign technical explanations.
+
+Counter-considerations:
+- The combination of audit configuration changes, large PHI activity,
+  removable-media transfer attempt, external SFTP attempt, and HR access
+  is inconsistent with an ordinary single administrative event unless
+  authorized by documented operational procedures.
+
+Assessment:
+POSSIBLE — REQUIRES AUTHORIZATION AND CHANGE-RECORD REVIEW.
+
+
+OBJECTIVE ASSESSMENT
+--------------------
+
+The synthetic evidence establishes a HIGH-SEVERITY SECURITY ANOMALY.
+
+The current evidence does NOT establish:
+
+- malicious insider intent;
+- credential theft;
+- MFA bypass;
+- token theft;
+- workstation malware;
+- successful PHI exfiltration;
+- successful external transfer;
+- patient-data disclosure;
+- attribution to an external actor.
+
+The strongest investigative priority is correlation of:
+
+1. Okta session identifiers;
+2. MFA events;
+3. VPN authentication;
+4. EDR process telemetry;
+5. database session identifiers;
+6. database configuration history;
+7. DLP events;
+8. network flow;
+9. HR-system audit logs;
+10. authorized change-management records.
+
+CONCLUSION
+----------
+
+The current synthetic evidence should be treated as an unresolved
+privileged-account security incident.
+
+Attribution should remain open between malicious insider, compromised
+account, compromised workstation, and operational anomaly until the
+independent telemetry sources are correlated.
+
+No conclusion about human intent should be made solely from geography,
+time of day, tenure, personal circumstances, or account ownership.

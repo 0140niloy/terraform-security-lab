@@ -1,0 +1,39 @@
+{
+  "SIMULATION_ONLY": true,
+  "flows": [
+    {
+      "timestamp": "2026-09-23T02:03:19Z",
+      "source": "DBA-WORKSTATION-01",
+      "destination": "PROD-PHI-DB-01",
+      "service": "SIMULATED-DB",
+      "bytes": 184320
+    },
+    {
+      "timestamp": "2026-09-23T02:12:22Z",
+      "source": "DBA-WORKSTATION-01",
+      "destination": "PROD-PHI-DB-01",
+      "service": "SIMULATED-DB",
+      "bytes": 536870912000,
+      "classification": "PHI"
+    },
+    {
+      "timestamp": "2026-09-23T02:30:02Z",
+      "source": "DBA-WORKSTATION-01",
+      "destination": "HR-SYSTEM-01",
+      "service": "SIMULATED-HR",
+      "bytes": 4096
+    },
+    {
+      "timestamp": "2026-09-23T02:27:51Z",
+      "source": "DBA-WORKSTATION-01",
+      "destination": "SIMULATED-SFTP-RUSSIA",
+      "service": "SFTP",
+      "bytes": 0,
+      "result": "BLOCKED"
+    }
+  ],
+  "assessment": {
+    "finding": "Synthetic flow data correlates database access, sensitive-data volume, HR access, and a blocked external connection.",
+    "important_distinction": "The 500 GiB value represents simulated telemetry and should not be interpreted as proof that 500 GiB of real PHI left the organization."
+  }
+}

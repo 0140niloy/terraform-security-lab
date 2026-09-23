@@ -1,0 +1,42 @@
+{
+  "SIMULATION_ONLY": true,
+  "device": "DBA-WORKSTATION-01",
+  "software_review": [
+    {
+      "component": "DB administration client",
+      "status": "APPROVED_SOFTWARE",
+      "unexpected_update": "NOT_OBSERVED"
+    },
+    {
+      "component": "VPN client",
+      "status": "APPROVED_SOFTWARE",
+      "unexpected_update": "NOT_OBSERVED"
+    },
+    {
+      "component": "Browser",
+      "status": "APPROVED_SOFTWARE",
+      "unexpected_extension": "NOT_OBSERVED"
+    },
+    {
+      "component": "Endpoint security agent",
+      "status": "RUNNING",
+      "tampering": "NOT_OBSERVED"
+    }
+  ],
+  "supply_chain_indicators": {
+    "unexpected_package": false,
+    "unsigned_component": false,
+    "unexpected_vendor_change": false,
+    "malicious_update_indicator": false
+  },
+  "assessment": {
+    "finding": "No supply-chain compromise is represented in the current synthetic evidence.",
+    "next_steps": [
+      "Compare installed software hashes with approved baselines",
+      "Review software deployment records",
+      "Validate update signatures",
+      "Review EDR agent integrity",
+      "Check change-management records"
+    ]
+  }
+}

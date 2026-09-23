@@ -1,0 +1,45 @@
+{
+  "SIMULATION_ONLY": true,
+  "device": "DBA-WORKSTATION-01",
+  "process_events": [
+    {
+      "timestamp": "2026-09-23T01:56:04Z",
+      "parent": "vpn-client.exe",
+      "process": "dbadmin-client.exe",
+      "user": "dba-senior-01",
+      "command_line": "SIMULATED database administrative session"
+    },
+    {
+      "timestamp": "2026-09-23T02:08:41Z",
+      "parent": "dbadmin-client.exe",
+      "process": "export-tool.exe",
+      "user": "dba-senior-01",
+      "command_line": "SIMULATED bulk export operation"
+    },
+    {
+      "timestamp": "2026-09-23T02:17:52Z",
+      "parent": "explorer.exe",
+      "process": "archive-tool.exe",
+      "user": "dba-senior-01",
+      "command_line": "SIMULATED archive creation"
+    },
+    {
+      "timestamp": "2026-09-23T02:18:36Z",
+      "parent": "archive-tool.exe",
+      "process": "removable-media-copy.exe",
+      "user": "dba-senior-01",
+      "command_line": "SIMULATED DLP-monitored copy"
+    }
+  ],
+  "assessment": {
+    "finding": "Synthetic process chain is consistent with database export and staging activity.",
+    "limitation": "Process names and command lines are simulated and do not establish actual execution.",
+    "next_steps": [
+      "Correlate process execution with EDR telemetry",
+      "Validate executable hashes",
+      "Review parent-child relationships",
+      "Check endpoint login/session history",
+      "Review removable-media events"
+    ]
+  }
+}

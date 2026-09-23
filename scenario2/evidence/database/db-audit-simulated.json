@@ -1,0 +1,60 @@
+{
+  "SIMULATION_ONLY": true,
+  "database": "PROD-PHI-DB-01",
+  "events": [
+    {
+      "timestamp": "2026-09-23T02:03:19Z",
+      "user": "dba-senior-01",
+      "event": "DATABASE_SESSION_START",
+      "source": "DBA-WORKSTATION-01",
+      "classification": "PHI"
+    },
+    {
+      "timestamp": "2026-09-23T02:07:54Z",
+      "user": "dba-senior-01",
+      "event": "SENSITIVE_SCHEMA_ACCESS",
+      "schema": "PATIENT_RECORDS",
+      "operation": "SELECT",
+      "classification": "PHI"
+    },
+    {
+      "timestamp": "2026-09-23T02:11:07Z",
+      "user": "dba-senior-01",
+      "event": "AUDIT_CONFIGURATION_CHANGE",
+      "action": "SIMULATED ALTER SESSION",
+      "target": "PATIENT_RECORDS_AUDIT",
+      "result": "SUCCESS",
+      "severity": "HIGH"
+    },
+    {
+      "timestamp": "2026-09-23T02:12:22Z",
+      "user": "dba-senior-01",
+      "event": "BULK_QUERY",
+      "schema": "PATIENT_RECORDS",
+      "operation": "SELECT",
+      "rows": 125000,
+      "classification": "PHI"
+    },
+    {
+      "timestamp": "2026-09-23T02:16:48Z",
+      "user": "dba-senior-01",
+      "event": "EXPORT_OPERATION",
+      "schema": "PATIENT_RECORDS",
+      "result": "SIMULATED",
+      "classification": "PHI"
+    }
+  ],
+  "assessment": {
+    "finding": "Synthetic database activity shows sensitive-schema access followed by an audit configuration change and bulk export activity.",
+    "limitation": "The evidence is simulated and does not establish real-world execution or intent.",
+    "priority": "HIGH",
+    "required_correlation": [
+      "Database native audit logs",
+      "EDR process telemetry",
+      "DLP events",
+      "VPN session records",
+      "Okta session history",
+      "Network flow logs"
+    ]
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "SIMULATION_ONLY": true,
+  "database": "PROD-PHI-DB-01",
+  "audit_gap": {
+    "start": "2026-09-23T02:11:07Z",
+    "end": "2026-09-23T02:14:31Z",
+    "duration_seconds": 204,
+    "affected_schema": "PATIENT_RECORDS_AUDIT",
+    "reason": "SIMULATED AUDIT CONFIGURATION CHANGE"
+  },
+  "events_during_gap": [
+    {
+      "timestamp": "2026-09-23T02:12:22Z",
+      "event": "BULK_QUERY",
+      "source": "SIMULATED_DATABASE_TELEMETRY"
+    },
+    {
+      "timestamp": "2026-09-23T02:13:17Z",
+      "event": "DATA_STAGING",
+      "source": "SIMULATED_DATABASE_TELEMETRY"
+    }
+  ],
+  "assessment": {
+    "finding": "A simulated audit gap overlaps with sensitive database activity.",
+    "important_limitation": "The gap does not by itself establish whether logging was disabled intentionally, automatically, or through a compromised administrative session.",
+    "next_steps": [
+      "Preserve database configuration history",
+      "Review privileged command history",
+      "Correlate database session identifiers",
+      "Compare database audit records with network telemetry",
+      "Check centralized immutable logging for missing events"
+    ]
+  }
+}

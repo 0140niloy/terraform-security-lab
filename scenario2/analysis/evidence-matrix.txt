@@ -1,0 +1,35 @@
+SCENARIO 2 — FORENSIC EVIDENCE MATRIX
+============================================================
+
+SIMULATION ONLY
+
+ID   EVIDENCE                         H1   H2   H3   H4   STATUS
+--------------------------------------------------------------------
+E01  Okta authentication               ?    +    +    +    Correlate
+E02  MFA/session reuse                 ?    +    +    +    Correlate
+E03  PHI database access               +    +    +    +    Confirmed*
+E04  Audit configuration change        +    +    +    ?    High
+E05  Export process chain              +    +    +    ?    Simulated
+E06  USB transfer attempt              +    +    +    ?    BLOCKED
+E07  External SFTP attempt             +    +    +    ?    BLOCKED
+E08  HR access attempts                +    +    +    ?    BLOCKED
+E09  No persistence observed           -    ?    -    +    Limited
+E10  No malware indicators             -    ?    -    +    Limited
+E11  Unknown-device session            ?    +    +    +    High
+E12  Network-context inconsistency     ?    +    +    +    High
+
+Legend:
++  Consistent with hypothesis
+?  Requires further investigation
+-  Does not currently support hypothesis
+*  "Confirmed" means the synthetic event exists, not that malicious
+   activity or intent is confirmed.
+
+H1 = Malicious insider
+H2 = Compromised account
+H3 = Compromised workstation
+H4 = Operational anomaly
+
+IMPORTANT:
+The matrix is not a scoring system and does not select a winning
+hypothesis. It documents compatibility between evidence and hypotheses.

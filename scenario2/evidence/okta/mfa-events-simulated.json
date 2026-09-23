@@ -1,0 +1,32 @@
+{
+  "SIMULATION_ONLY": true,
+  "identity": "dba-senior-01",
+  "events": [
+    {
+      "timestamp": "2026-09-23T01:47:59Z",
+      "factor": "simulated-authenticator",
+      "event": "MFA_CHALLENGE",
+      "result": "APPROVED",
+      "device": "DBA-WORKSTATION-01"
+    },
+    {
+      "timestamp": "2026-09-23T01:48:00Z",
+      "factor": "simulated-authenticator",
+      "event": "MFA_VERIFICATION",
+      "result": "SUCCESS"
+    },
+    {
+      "timestamp": "2026-09-23T01:54:32Z",
+      "event": "MFA_CHALLENGE",
+      "result": "NOT_OBSERVED",
+      "note": "Existing session context reused in simulation."
+    },
+    {
+      "timestamp": "2026-09-23T02:19:41Z",
+      "event": "MFA_CHALLENGE",
+      "result": "NOT_OBSERVED",
+      "note": "Existing session context reused in simulation."
+    }
+  ],
+  "assessment": "Investigate session lifetime, token/session theft, device trust, and Okta session history."
+}
