@@ -1,0 +1,111 @@
+PHASE 4 - CUSTOM CLOUD SECURITY DETECTIONS
+==========================================
+
+DETECTION 01 - CROSS-ACCOUNT ASSUMEROLE
+----------------------------------------
+Trigger when a service identity assumes a role in another cloud account.
+
+Investigate:
+- Source identity
+- Source account
+- Destination account
+- Destination role
+- Source IP/network
+- Time of activity
+- Whether the trust relationship is approved
+
+DETECTION 02 - IAM TRUST-POLICY CHANGE
+---------------------------------------
+High-priority alert for:
+- CreateRole
+- UpdateAssumeRolePolicy
+- Trust-policy changes involving external accounts
+- Wildcard principals
+
+DETECTION 03 - PRIVILEGE ESCALATION
+------------------------------------
+Alert when:
+- Read-only identity obtains administrative permissions
+- Service account receives unexpected policy attachment
+- Deployment role becomes administrator
+- Production role is accessed from development identity
+
+DETECTION 04 - SENSITIVE SECRET ACCESS
+---------------------------------------
+Monitor:
+- Secrets Manager secret reads
+- Database credential access
+- Production secrets accessed by development identities
+
+DETECTION 05 - SENSITIVE DATA DOWNLOAD
+---------------------------------------
+Alert on unusual:
+- S3 object download volume
+- Number of sensitive objects accessed
+- Download frequency
+- Source identity
+- Source network
+- Destination network
+
+DETECTION 06 - SCHEDULED SERVERLESS PERSISTENCE
+------------------------------------------------
+Monitor creation or modification of:
+- EventBridge schedules
+- Scheduled Lambda functions
+- Scheduled cloud jobs
+
+Correlate the creator with approved deployment activity.
+
+DETECTION 07 - PUBLIC API POLICY
+--------------------------------
+Alert on API policies that introduce:
+- Principal = *
+- Unexpected anonymous access
+- Unexpected public invocation
+
+DETECTION 08 - DEVELOPMENT TO PRODUCTION
+-----------------------------------------
+Alert when development identities access:
+- Production databases
+- Production secrets
+- Production storage
+- Production administrative APIs
+
+DETECTION 09 - CI/CD ANOMALY
+-----------------------------
+Alert when:
+- CI/CD identity deploys outside approved workflow
+- Repository change occurs immediately before unusual deployment
+- Production deployment bypasses normal review
+- Unknown artifact is deployed
+
+DETECTION 10 - OFF-HOURS ANOMALY
+--------------------------------
+Flag unusual administrative activity outside expected operating windows.
+
+Do not treat off-hours activity alone as proof of compromise.
+Correlate with:
+- Identity
+- Source network
+- Change records
+- MFA/authentication events
+- API sequence
+- Known maintenance windows
+
+ALERT PRIORITY
+--------------
+Critical:
+- Unauthorized IAM trust change
+- Production privilege escalation
+- Unauthorized production-admin AssumeRole
+- Public access to sensitive APIs
+
+High:
+- Sensitive secret access from unusual identity
+- Large sensitive-data download
+- Unexpected scheduled serverless resource
+
+Medium:
+- Off-hours activity
+- Unusual but authorized API sequence
+- Network/location anomaly requiring correlation

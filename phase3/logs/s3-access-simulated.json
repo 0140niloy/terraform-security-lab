@@ -1,0 +1,38 @@
+[
+  {
+    "timestamp": "2026-09-23T00:10:11Z",
+    "identity": "dev-deployment-service",
+    "bucket": "customer-financial-data",
+    "object": "customers/segment-01",
+    "operation": "GetObject",
+    "bytes": 52428800,
+    "classification": "CUSTOMER_PII"
+  },
+  {
+    "timestamp": "2026-09-23T00:11:42Z",
+    "identity": "dev-deployment-service",
+    "bucket": "customer-financial-data",
+    "object": "customers/segment-02",
+    "operation": "GetObject",
+    "bytes": 73400320,
+    "classification": "CUSTOMER_PII"
+  },
+  {
+    "timestamp": "2026-09-23T00:13:08Z",
+    "identity": "dev-deployment-service",
+    "bucket": "trading-research",
+    "object": "algorithms/model-v17.bin",
+    "operation": "GetObject",
+    "bytes": 15728640,
+    "classification": "INTELLECTUAL_PROPERTY"
+  },
+  {
+    "timestamp": "2026-09-23T00:14:21Z",
+    "identity": "dev-deployment-service",
+    "bucket": "transaction-history",
+    "object": "2026/Q3/transactions.csv",
+    "operation": "GetObject",
+    "bytes": 104857600,
+    "classification": "FINANCIAL_RECORDS"
+  }
+]

@@ -1,0 +1,71 @@
+PHASE 4 - SOFTWARE AND IaC SUPPLY-CHAIN SECURITY
+=================================================
+
+SOURCE CONTROL
+--------------
+- Protect main/production branches.
+- Require pull requests.
+- Require peer review for infrastructure changes.
+- Use CODEOWNERS for sensitive Terraform/IaC paths.
+- Prevent direct unauthorized pushes.
+- Enable repository audit logging.
+- Protect CI/CD configuration files.
+
+IDENTITY
+--------
+- Use dedicated CI/CD identities.
+- Avoid personal credentials in automation.
+- Use short-lived credentials where supported.
+- Restrict CI/CD permissions by environment.
+
+IaC SECURITY
+-----------
+Run automated checks before deployment:
+- Terraform validation
+- Terraform formatting checks
+- Static security analysis
+- Secret scanning
+- Dependency scanning
+- Policy-as-code validation
+- Configuration drift detection
+
+ARTIFACT SECURITY
+-----------------
+- Generate SBOMs for software artifacts.
+- Verify artifact provenance.
+- Sign release artifacts.
+- Verify signatures before deployment.
+- Maintain immutable artifact repositories.
+- Separate build and deployment privileges.
+
+PROVENANCE / SLSA
+-----------------
+Evaluate SLSA-aligned controls for:
+- Build provenance
+- Source integrity
+- Build isolation
+- Artifact integrity
+- Verification before deployment
+
+DEPLOYMENT GATES
+----------------
+Production deployment should fail closed when:
+- Required review is missing
+- Security scans fail
+- Artifact signature is invalid
+- Provenance cannot be verified
+- Secrets are detected
+- Unauthorized infrastructure changes are detected
+
+DRIFT DETECTION
+---------------
+Continuously compare deployed infrastructure against approved IaC.
+
+Unexpected changes to:
+- IAM
+- Lambda
+- API Gateway
+- Networking
+- Storage policies
+- Security groups
+should generate security alerts and investigation tasks.

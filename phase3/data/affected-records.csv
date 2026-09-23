@@ -1,0 +1,6 @@
+dataset,record_count,data_classification
+customer_financial_data,125000,CUSTOMER_PII
+transaction_history,84200,FINANCIAL_RECORDS
+employee_financial_records,1250,EMPLOYEE_FINANCIAL
+trading_algorithms,17,INTELLECTUAL_PROPERTY
+service_credentials,43,CREDENTIALS

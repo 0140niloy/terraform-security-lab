@@ -1,0 +1,105 @@
+PHASE 4 - INCIDENT REMEDIATION RUNBOOK
+======================================
+
+PHASE 1 - CONTAIN
+-----------------
+1. Confirm the affected identities and resources.
+2. Disable or restrict compromised credentials.
+3. Remove unauthorized IAM trust relationships.
+4. Restrict suspicious cross-account access.
+5. Preserve logs before making destructive changes.
+6. Restrict suspicious network paths where operationally safe.
+
+PHASE 2 - CREDENTIAL RESPONSE
+-----------------------------
+Rotate credentials associated with affected systems.
+
+Review:
+- IAM access keys
+- Service-account credentials
+- CI/CD secrets
+- Database credentials
+- API credentials
+- Federation/session configuration
+
+Do not delete evidence before preservation requirements are satisfied.
+
+PHASE 3 - CLOUD DRIFT
+---------------------
+Compare deployed infrastructure against approved IaC.
+
+Review:
+- IAM roles
+- Trust policies
+- Lambda functions
+- EventBridge schedules
+- API Gateway policies
+- S3 policies
+- Security groups
+- VPC routes
+- Cross-account relationships
+
+Rebuild compromised resources from trusted source where appropriate.
+
+PHASE 4 - SUPPLY CHAIN
+----------------------
+- Review suspicious repository commits.
+- Review repository access logs.
+- Identify unauthorized contributors.
+- Verify CI/CD execution history.
+- Verify artifact provenance.
+- Rotate affected repository/CI credentials.
+- Require protected branches and peer review.
+- Enable automated IaC security scanning.
+
+PHASE 5 - MONITORING
+--------------------
+Increase monitoring for:
+- IAM changes
+- AssumeRole activity
+- Secret access
+- KMS usage
+- Sensitive-data downloads
+- Serverless resource creation
+- API policy changes
+- Network anomalies
+
+PHASE 6 - RECOVERY
+------------------
+Restore services from trusted artifacts.
+
+Before production restoration:
+- Validate infrastructure
+- Verify IAM
+- Verify network segmentation
+- Verify logging
+- Verify monitoring
+- Verify backups
+- Verify security controls
+
+PHASE 7 - BUSINESS CONTINUITY
+-----------------------------
+Security remediation must preserve critical financial operations.
+
+Use:
+- Staged changes
+- Tested rollback procedures
+- Recovery environments
+- Change approvals
+- Documented emergency procedures
+
+PHASE 8 - POST-INCIDENT
+-----------------------
+Document:
+- Root cause
+- Initial access
+- Lateral movement
+- Privilege escalation
+- Data access
+- Persistence
+- Detection gaps
+- Remediation actions
+- Remaining risks
+- Lessons learned
+
+Validate that all conclusions are supported by preserved evidence.

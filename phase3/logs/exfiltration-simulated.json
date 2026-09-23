@@ -1,0 +1,18 @@
+[
+  {
+    "timestamp": "2026-09-23T00:15:11Z",
+    "identity": "dev-deployment-service",
+    "source": "customer-financial-data",
+    "destination": "198.51.100.99",
+    "bytes": 52428800,
+    "protocol": "HTTPS"
+  },
+  {
+    "timestamp": "2026-09-23T00:16:32Z",
+    "identity": "dev-deployment-service",
+    "source": "trading-research",
+    "destination": "198.51.100.99",
+    "bytes": 15728640,
+    "protocol": "HTTPS"
+  }
+]

@@ -1,0 +1,101 @@
+PHASE 4 - ZERO TRUST ARCHITECTURE REDESIGN
+===========================================
+
+Objective:
+Reduce the blast radius of compromised identities, CI/CD systems, cloud
+accounts, and infrastructure-as-code repositories.
+
+1. IDENTITY
+-----------
+- Use centralized identity federation.
+- Require MFA for human administrative access.
+- Eliminate long-lived access keys wherever possible.
+- Use short-lived workload credentials.
+- Bind workload identities to specific services and environments.
+- Separate development, staging, and production identities.
+- Require explicit authorization for production access.
+
+2. LEAST PRIVILEGE
+------------------
+- Grant only the permissions required for a workload.
+- Separate read-only, deployment, administration, and security roles.
+- Remove unused permissions and stale trust relationships.
+- Review cross-account AssumeRole relationships regularly.
+- Use time-limited privileged access for sensitive operations.
+- Require approval for privilege escalation.
+
+3. NETWORK SEGMENTATION
+-----------------------
+- Separate development, staging, and production VPCs/VNETs.
+- Minimize VPC peering and cross-cloud routes.
+- Deny unnecessary east-west traffic.
+- Restrict production management interfaces.
+- Use private endpoints for sensitive services.
+- Apply egress controls to workloads that do not require internet access.
+
+4. DATA PROTECTION
+------------------
+- Encrypt sensitive data at rest and in transit.
+- Separate encryption keys by environment and data classification.
+- Restrict KMS/key-management permissions.
+- Monitor sensitive key-use events.
+- Prevent development identities from accessing production customer data.
+
+5. CONTINUOUS VERIFICATION
+--------------------------
+Every sensitive request should be evaluated using:
+- Identity
+- Device/workload identity
+- Authentication strength
+- Requested resource
+- Environment
+- Network location
+- Time/context
+- Risk signals
+- Required authorization
+
+6. PRODUCTION PROTECTION
+------------------------
+Production changes should require:
+- Protected CI/CD workflows
+- Peer review
+- Verified artifact provenance
+- Approved deployment identity
+- Change-ticket/reference where applicable
+- Automated security checks
+- Drift detection
+- Centralized audit logging
+
+7. CONFIDENTIAL COMPUTING
+-------------------------
+Evaluate confidential-computing technologies for workloads requiring
+additional protection of data during processing.
+
+Candidate technologies include:
+- Intel SGX
+- Intel TDX
+- AMD SEV/SEV-SNP
+
+Deployment should be based on workload requirements, cloud-provider
+support, performance requirements, and threat model.
+
+8. BUSINESS CONTINUITY
+----------------------
+Security controls must preserve critical financial-services operations.
+
+Use:
+- Tested backups
+- Multi-region recovery where appropriate
+- Immutable recovery artifacts
+- Documented recovery objectives
+- Emergency break-glass procedures
+- Regular disaster-recovery exercises
+
+SUCCESS CRITERIA
+----------------
+A compromised development identity should not automatically provide:
+- Production administrative access
+- Customer-data access
+- Cross-cloud administrative access
+- Persistent credentials
+- Unrestricted network connectivity

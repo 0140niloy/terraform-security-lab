@@ -1,0 +1,8 @@
+{
+  "bucket": "customer-financial-data",
+  "encryption": "AWS-KMS",
+  "keyId": "simulated-kms-key-001",
+  "keyMaterial": "NOT_PRESENT",
+  "keyAccessEvents": [],
+  "assessment": "Data encrypted at rest; no simulated evidence that key material was exposed."
+}

@@ -1,0 +1,44 @@
+CUSTOMER SECURITY INCIDENT NOTIFICATION
+========================================
+
+IMPORTANT:
+This is a template for the incident-response exercise. No statement below
+should be sent to customers without factual, legal, and regulatory review.
+
+Subject: Notice Regarding a Security Incident
+
+Dear Customer,
+
+We are writing to inform you about a security incident involving certain
+systems used by our organization.
+
+What happened:
+[Describe the confirmed incident using verified facts only.]
+
+When it occurred:
+[Insert verified date/time range.]
+
+What information was involved:
+[Insert confirmed data categories.]
+
+Was your information affected:
+[Insert confirmed individual/customer determination.]
+
+What we are doing:
+- Containing the incident
+- Preserving relevant evidence
+- Investigating the scope and cause
+- Reviewing access controls and credentials
+- Strengthening monitoring and security controls
+
+What you can do:
+[Insert verified customer-specific protective actions.]
+
+For assistance:
+[Insert official contact information.]
+
+We will provide additional information when it becomes available.
+
+Sincerely,
+[Organization]
+[Security/Privacy Contact]

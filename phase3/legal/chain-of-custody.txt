@@ -1,0 +1,27 @@
+PHASE 3 - EVIDENCE CHAIN OF CUSTODY
+===================================
+
+Status:
+Synthetic incident-response exercise. All cloud events and artifacts are simulated.
+
+Evidence handling principles:
+1. Preserve original evidence without modification.
+2. Record SHA-256 hashes for collected evidence.
+3. Maintain timestamps and source information.
+4. Keep analysis copies separate from preserved originals.
+5. Record every transformation or analysis performed.
+6. Validate log integrity before relying on evidence for conclusions.
+7. Preserve relevant CloudTrail, VPC Flow Logs, ALB/WAF logs, IAM history,
+   S3 access logs, serverless configuration history, and CI/CD records.
+8. Preserve evidence of possible log deletion or modification.
+9. Document access to evidence for legal and forensic review.
+
+Important limitation:
+This exercise does not establish that a real-world breach occurred.
+Synthetic evidence must not be treated as production cloud evidence.
+
+Investigation status:
+Encryption at rest is documented for the simulated customer-financial-data
+bucket using a simulated AWS KMS key identifier. No simulated key material
+or key-access events are present. In a real investigation, KMS Decrypt events,
+key policies, grants, and CloudTrail records would require review.

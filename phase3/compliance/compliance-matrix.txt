@@ -1,0 +1,112 @@
+PHASE 3 - REGULATORY AND COMPLIANCE ASSESSMENT
+================================================
+
+Status:
+Synthetic incident-response exercise. This document identifies potentially
+relevant regulatory areas for legal/compliance review. It does not constitute
+legal advice or a definitive determination of reporting obligations.
+
+1. GLBA / Safeguards Rule
+-------------------------
+Potential relevance:
+Unauthorized access to customer financial information may trigger
+financial-privacy and information-security obligations.
+
+Review:
+- Nature and scope of customer information involved
+- Whether information was encrypted
+- Whether encryption keys were accessible
+- Number of affected consumers
+- Applicable notification requirements
+- Incident-response and service-provider obligations
+
+2. SEC CYBERSECURITY DISCLOSURE REQUIREMENTS
+---------------------------------------------
+Potential relevance:
+A public company should evaluate whether a cybersecurity incident is
+material and whether applicable SEC disclosure requirements are triggered.
+
+Review:
+- Materiality determination
+- Date materiality was determined
+- Impact on operations and financial condition
+- Form 8-K requirements, if applicable
+- Periodic-report disclosures
+- Board and management involvement
+
+3. SEC REGULATION S-P
+---------------------
+Potential relevance:
+If covered customer information or records were accessed or used without
+authorization, determine whether Regulation S-P requirements apply.
+
+Review:
+- Whether the organization is a covered institution
+- Nature of customer information involved
+- Unauthorized access/use determination
+- Customer notification requirements
+- Service-provider notification obligations
+
+4. FINRA
+--------
+Potential relevance:
+If the organization or affected activities fall within FINRA's regulatory
+scope, review applicable cybersecurity, recordkeeping, reporting, and
+supervisory obligations.
+
+Review:
+- Entity's FINRA status
+- Affected systems and regulated activities
+- Required records
+- Incident reporting obligations
+- Supervisory and business-continuity requirements
+
+5. GDPR
+--------
+Potential relevance:
+If affected individuals or processing activities fall within GDPR scope,
+evaluate applicable personal-data breach obligations.
+
+Review:
+- Territorial and material scope
+- Categories of personal data
+- Number of affected individuals
+- Risk to individuals
+- Supervisory-authority notification requirements
+- Data-subject notification requirements
+
+6. CCPA / CPRA
+--------------
+Potential relevance:
+If California residents and applicable covered data/business criteria are
+involved, evaluate applicable privacy and breach-notification obligations.
+
+Review:
+- Number and identity of potentially affected California residents
+- Data categories involved
+- Applicability thresholds
+- Notification requirements
+- Consumer-rights implications
+
+7. CORPORATE / INSURANCE / LAW-ENFORCEMENT REVIEW
+---------------------------------------------------
+Review:
+- Cyber-insurance notification requirements
+- Preservation of policy-required evidence
+- Outside counsel involvement
+- Regulatory notification strategy
+- Law-enforcement referral where appropriate
+- Contractual notification obligations
+
+IMPORTANT LIMITATIONS
+---------------------
+The simulated evidence does not establish:
+- The identity of any real attacker
+- That an actual customer breach occurred
+- The exact number of affected individuals
+- That data was actually exfiltrated
+- That any particular regulatory threshold was met
+- That a specific filing or notification is legally required
+
+All final legal and regulatory determinations require review of the actual
+facts by qualified legal and compliance personnel.

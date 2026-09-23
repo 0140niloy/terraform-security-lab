@@ -1,0 +1,63 @@
+PHASE 4 - IAM HARDENING PLAN
+============================
+
+1. Trust Policies
+-----------------
+- Review every cross-account trust relationship.
+- Remove unauthorized external principals.
+- Restrict trusted principals to approved accounts/roles.
+- Avoid wildcard principals.
+- Require external IDs where appropriate for third-party access.
+- Monitor all trust-policy modifications.
+
+2. Privileged Roles
+-------------------
+- Separate deployment and administration roles.
+- Prohibit development identities from assuming production-admin roles.
+- Use short-lived sessions.
+- Require MFA or equivalent strong authentication where supported.
+- Apply session-duration limits.
+
+3. Service Accounts
+-------------------
+- Give each service account a narrowly defined purpose.
+- Avoid shared credentials.
+- Rotate credentials according to organizational policy.
+- Disable unused accounts.
+- Monitor unusual API usage.
+
+4. Sensitive Data
+-----------------
+Restrict access to:
+- Secrets Manager
+- KMS
+- Customer-data storage
+- Financial databases
+- Trading systems
+
+Monitor:
+- GetSecretValue
+- KMS decrypt operations
+- Sensitive object downloads
+- Permission changes
+- Cross-account role assumption
+
+5. Emergency Controls
+---------------------
+Maintain a documented break-glass process.
+
+Break-glass credentials must:
+- Be strongly protected
+- Be separately monitored
+- Be used only for emergencies
+- Generate high-priority security alerts
+- Be reviewed after every use
+
+6. IAM REVIEW FREQUENCY
+-----------------------
+Perform periodic:
+- Access reviews
+- Trust-policy reviews
+- Permission analysis
+- Unused-role detection
+- Cross-account relationship review

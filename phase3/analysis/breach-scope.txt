@@ -1,0 +1,47 @@
+PHASE 3 — BREACH SCOPE ASSESSMENT
+=================================
+
+Dataset-level records potentially accessed:
+
+Customer financial data:       125,000 records
+Transaction history:            84,200 records
+Employee financial records:      1,250 records
+Trading algorithms:                 17 objects
+Service credentials:               43 credentials
+
+Important distinction:
+
+The sum of records is NOT the number of affected individuals because
+the same customer or employee may appear in multiple datasets.
+
+Therefore:
+
+Affected individuals: PENDING DEDUPLICATION
+
+Confirmed data states must be separated into:
+
+1. Accessible
+   Data that the compromised identity had permission to access.
+
+2. Accessed
+   Data for which logs show a successful read operation.
+
+3. Downloaded
+   Data for which logs show transfer from the storage service.
+
+4. Exfiltrated
+   Data for which evidence establishes movement to an unauthorized
+   external destination.
+
+Current training dataset:
+S3 GetObject events establish simulated access.
+They do not, by themselves, establish external exfiltration.
+
+Encryption status:
+PENDING EVIDENCE REVIEW
+
+Encryption key exposure:
+PENDING KMS / key-management evidence.
+
+Final affected-individual count:
+PENDING DEDUPLICATION OF CUSTOMER AND EMPLOYEE IDENTIFIERS.
